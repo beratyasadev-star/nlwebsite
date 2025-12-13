@@ -1,0 +1,192 @@
+[
+  {
+    "question": "Ter Apel'e başvuru yapmanın ilk adımı nedir?",
+    "answer": "Hollanda'ya gelen iltica talipleri ilk olarak Ter Apel'deki Göçmen Kayıt Merkezi'ne (MVV) gitmelidirler. Burada kimlik kontrolleri yapılır, parmak izleri alınır ve ilk sağlık muayenesi gerçekleştirilir. Ter Apel'de kayıt yapıldıktan sonra size bir referans numarası ve geçici barınma verilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Ter Apel başvurusunda hangi belgeler gerekli?",
+    "answer": "Pasaportunuz varsa bunu getirmeniz gerekir. Eğer pasaportunuz yoksa ya da kaybettiyse, kimliğinizi kanıtlayabilecek herhangi bir resmi belge (ulusal kimlik kartı, sürücü lisansı vb.) faydalı olabilir. Ayrıca, seyahat yolunuz ve neden Hollanda'ya geldiğiniz hakkında bilgi verebilirsiniz, ancak bu aşamada ayrıntılı belgeler zorunlu değildir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Dublin Prosedürü nedir ve ne zaman uygulanır?",
+    "answer": "Dublin Prosedürü, AB ülkeleri arasında iltica başvurularının işlenmesini düzenleyen bir sistemdir. Eğer siz AB'nin başka bir ülkesine girdiniz ve parmak izleriniz orada kaydedildiyse, Hollanda'daki başvurunuz reddedilebilir ve sizi ilk giriş yapan ülkeye iade edebilirler. Bu ülke iltica başvurunuzu değerlendirmekle sorumlu olacaktır.",
+    "category": "asylum"
+  },
+  {
+    "question": "Dublin kararına karşı ne yapabilirim?",
+    "answer": "Dublin kararına karşı, karar alındığını öğrendiğinizden itibaren 2 hafta içinde itiraz edebilirsiniz. İtirazınızda, neden iltica başvurunuzun Hollanda'da işlenmesi gerektiğini açıklayabilirsiniz. Örneğin, Hollanda'da aile üyeleri varsa veya belirli şehirlerde zaten başvuru yaptıysanız, bu durumları belirtebilirsiniz.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu yapılırken IND ne tür sorular sorar?",
+    "answer": "IND (Göçmenlik Hizmetleri Birimi), iltica mülakatı sırasında; neden ülkenizi terk ettiğinizi, ne tür tehditlerle karşı karşıya olduğunuzu, kişisel ve aile geçmişinizi, ülkenizdeki siyasi durumu ve kendinize karşı potansiyel tehditleri açıklamanız için sorular sorar. Cevaplarınız doğru ve tutarlı olmalıdır.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu sırasında ne kadar bekleme süresi vardır?",
+    "answer": "Normalde IND, başvurunuzdan itibaren 6 ay içinde bir karar verecektir. Ancak karmaşık durumlar daha uzun sürebilir. Bu süre zarfında, Ültimodam Konaklama Merkezi (COA - Central Office for the Reception of Asylum Seekers) tarafından barındırılacak ve aylık küçük bir yardım alacaksınız.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu reddedilirse ne olur?",
+    "answer": "Başvurunuz reddedilirse, size yazılı bir karar ve reddin nedenlerini açıklayan bir mektup verilecektir. Eğer ülkeniz güvenli kabul edildiğine veya hiçbir persekütüsyon tehdidi olmadığına karar verilirse, talebiniz reddedilebilir. Bu durumda, ülkenize dönmeniz istenecektir. İtiraz etme hakkınız vardır.",
+    "category": "asylum"
+  },
+  {
+    "question": "Başvuruya karşı itiraz (beroep) nasıl yapılır?",
+    "answer": "Başvuruya karşı itiraz etmek için, red kararını aldıktan sonra 2 hafta içinde uygun şekilde bir itiraz dilekçesi yazmanız gerekir. İtirazınız, İdari Mahkeme'ye sunulmalıdır. Vasi veya avukat yardımı alırseniz daha etkili olabilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Ter Apel'de kamp yaşamının kuralları nelerdir?",
+    "answer": "Ter Apel kampında, kayıt ve sağlık muayeneleri tamamlandıktan sonra genellikle 5-7 gün içinde başka bir COA tesisine transfer edilirsiniz. Kamp içinde belirli kurallar vardır: gece saatleri boyunca kalmanız gerekir, alkol yasaktır ve şiddet hoş görülmez. Kampın yönetim kurallarına uymanız önemlidir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Kampta barınırken hangi temel haklar sağlanır?",
+    "answer": "COA kampında barınırken, size; yemek, barınak, temel hijyen malzemeleri ve sağlık hizmetlerine erişim sağlanır. Aylık cep harçlığı (yaklaşık 50-70 €) verilir. Eğer ailece barınıyorsanız, çocuklarınız okula gidebilir ve temel tıbbi hizmetler ücretsizdir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Kampta aile üyeleriyle barınamazam ne yapabilirim?",
+    "answer": "Eğer ailesi olmayan bir yetişkin veya çocuğu olmayan evli birleriyseniz, birlikte barınma olanağı olmayabilir. Ancak, ailesi olmayan çocuklar (UAM) için Nidos gibi kuruluşlar tarafından ayrı konaklama ve gözetim sağlanır. Bu durumu kampın yönetimiyle konuşabilirsiniz.",
+    "category": "asylum"
+  },
+  {
+    "question": "COA nedir ve ne işe yarar?",
+    "answer": "COA (Centraal Orgaan Asielzoekers), Hollanda'nın iltica başvuru sahibilerine barınma ve temel hizmetler sağlayan merkezi kurumudur. Kamp yönetiminden sorumludur ve yemek, hijyen, sağlık hizmetleri ve günlük ihtiyaçlar sağlar.",
+    "category": "asylum"
+  },
+  {
+    "question": "COA kampında çalışma yasaklıdır mı?",
+    "answer": "Evet, iltica başvurunuz işlenirken resmi olarak çalışmanız yasaktır. Ancak, bazı durumlarda sınırlı gönüllü faaliyetler veya eğitim etkinlikleri yapabilirsiniz. Resmi çalışma izni almak için, ilk başvuru dönemini tamamlamanız ve IND'den olumlu karar almanız gerekir.",
+    "category": "asylum"
+  },
+  {
+    "question": "COA sosyal yardımları nelerdir?",
+    "answer": "COA tarafından sağlanan sosyal yardımlar şunları içerir: Barınma (kamp veya ayrı konut), Yemek (kamp veya yemek parası), Temel sağlık hizmetleri, Cep harçlığı (aylık 50-70€), Çocuklarınız varsa ek ödenek, Okul malzemeleri, Oyuncaklar ve eğitim materyalleri.",
+    "category": "asylum"
+  },
+  {
+    "question": "BSN numarası nedir ve neden gerekli?",
+    "answer": "BSN (Burgerservicenummer), Hollanda'da kimlik numarası gibi işlev gören 9 haneli sayıdır. İltica başvurusu yapmanız için BSN almanız gerekir. BSN olmadan, banka hesabı açamaz, ev kiralamaz, çalışamaz veya okulunuza kayıt yaptıramazsınız. Ter Apel'de kayıt yaptırdığınızda otomatik olarak BSN verilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "BSN nasıl ve ne zaman verilir?",
+    "answer": "BSN, Ter Apel'de ilk kayıt sırasında hemen verilir. İltica müdürü tarafından hazırlanmış bir belge veya kart ile BSN'nizi öğrenebilirsiniz. Bu numara ile, gelecekte tüm resmi işlemleri yapabilirsiniz.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu onaylanırsa ne olur?",
+    "answer": "Başvurunuz kabul edilirse, size 5 yıllık iltica izni (Beschermde status) verilecektir. Bu durumda, Hollanda'da yasal olarak yaşayabilir, çalışabilir, eğitim alabilir, sağlık hizmetlerinden faydalanabilir ve evinizi seçebilirsiniz. Ayrıca, aile üyelerinizi Hollanda'ya getirme hakkınız olacaktır.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica statüsü sonrasında dil eğitimi alabilir miyim?",
+    "answer": "Evet, iltica statüsü aldıktan sonra, hükümet tarafından desteklenen dil kurslarına (Nederlands) katılabilirsiniz. Bu kurslar genellikle ücretsiz veya çok az maliyetlidir. Dil, Hollanda'da çalışabilme ve entegrasyonun temel anahtarıdır.",
+    "category": "asylum"
+  },
+  {
+    "question": "Mesleki eğitim ve integrasyonu destekleyen programlar nelerdir?",
+    "answer": "Hollanda'da, iltica statüsü veya net çalışma izni sahibi kişiler için mesleki eğitim programları mevcuttur. Örneğin; veri analisti, doktor, hemşire, inşaat işçi, vs. gibi farklı alanlarda eğitim alabilirsiniz. Bu programlara, iş bulma ajansları veya belediyeler aracılığıyla erişebilirsiniz.",
+    "category": "asylum"
+  },
+  {
+    "question": "Çalışma izni ne zaman ve nasıl alınır?",
+    "answer": "İltica başvurunuz işlenirken, bazı durumlarda çalışma izni (werkvergunning) alabilirsiniz. Başvurunuz henüz işlemde ise, iltica sahibi olduğunuzu kanıtlayan belgeniz varsa, işveren UWV'ye başvurabilir ve size çalışma izni talep edebilir. Resmi olarak iltica almış ise, çalışma izni otomatiktir.",
+    "category": "asylum"
+  },
+  {
+    "question": "UWV (İstihdam Kurumu) başvurusu nedir?",
+    "answer": "UWV (Uitvoering Werknemersverzekeringen), Hollanda'nın istihdam kurumudur. Eğer iltica statüsü almış ve çalışmak istiyorsanız, işvereniniz UWV'ye çalışma iznini talep etmek için başvuru yapabilir. Bu işlem birkaç gün içinde sonuçlanır ve işverenin başarılı olması durumunda size çalışma izni verilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica talibiyken çalışma izni alabilir miyim?",
+    "answer": "Evet, bazı durumlarda işgücü kıtlığı yaşanan sektörlerde iltica talipleri için çalışma izni verilebilir. Ancak bunun için işvereniniz UWV'ye başvurması gerekir. Normal şartlar altında, iltica statüsü alana kadar çalışma yasaktır.",
+    "category": "asylum"
+  },
+  {
+    "question": "Başka bir AB ülkesinde red aldıktan sonra Hollanda'da ne olur?",
+    "answer": "Eğer başka bir AB ülkesinde iltica başvurunuz reddedildiyse ve siz Hollanda'ya girdiyseniz, Dublin kuralı uygulanabilir. Hollanda, sizi ilk giriş yaptığınız ülkeye iade edebilir. Ancak itiraz etme ve belirli durumlar (aile bağları, sağlık) nedeniyle hak talebinde bulunma hakkınız vardır.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica reddi alındıktan sonra kaç gün içinde ülkeden ayrılmam gerekir?",
+    "answer": "Hollanda'dan ayrılmak için genellikle 28 gün süreniz vardır. Bu süre içinde ülkeden kendi isteğinizle ayrılabilirsiniz. Eğer ayrılmazsan, Hollanda hükümeti sizi geri gönderme kararı alabilir ve ülkenizde 5 yıl boyunca Hollanda'ya geri dönmek yasak olur.",
+    "category": "asylum"
+  },
+  {
+    "question": "Dil kursu alırken ne tür destek sağlanır?",
+    "answer": "Dil kurslarında; kitap, yazı kağıdı ve diğer eğitim materyalleri genellikle ücretsiz veya az ücretli olarak sağlanır. Bazı kurslara katılım ek ödenek alabilir (yaklaşık 10-20€ haftalık). Kurslar haftada 3-4 gün, 2-3 saat uzunluğunda olabilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İş bulma hizmetleri Hollanda'da nasıl çalışır?",
+    "answer": "Hollanda'da iş bulma hizmetleri, UWV, belediyeler ve özel istihdam ajansları tarafından sağlanır. İltica statüsü almışsanız, UWV'ye kaydolabilir ve onlar sizin becerilerinize uygun işler bulmanızda yardımcı olur. Bazı bölgelerde özel entegrasyon programları da mevcuttur.",
+    "category": "asylum"
+  },
+  {
+    "question": "Kampta ailece barınabilir miyim?",
+    "answer": "Evet, çocuğu olan aileler genellikle ayrı aileye özel barınma birimlerine yerleştirilir. Bekâr bireyler ve çocuksuz çiftler, yakın zamanda ailelerine katılma ihtimali varsa, bazen birlikte barındırılabilir. Ancak, bu kararlar COA tarafından duruma göre alınır.",
+    "category": "asylum"
+  },
+  {
+    "question": "Kampta çocuklarım okula gidebilir mi?",
+    "answer": "Evet, iltica talip çocuklarının Hollanda'da okula gitme hakkı vardır. Kamp yakınındaki okullar çocuklarınızı kayıt eder. Okul malzemeleri ve bazı masraflar COA tarafından karşılanır.",
+    "category": "asylum"
+  },
+  {
+    "question": "Hollanda'da tıbbi hizmetlere nasıl erişebilirim?",
+    "answer": "İltica talip olarak, kampınızın tıbbi hizmetlerine erişebilirsiniz. Kampınızda doktor veya hemşire vardır ve acil durumlarda hastaneye sevk edilebilirsiniz. Özel tıbbi sorunlar için başka sağlık merkezlerine referans verilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu sırasında mektep dışlanabilir miyim?",
+    "answer": "Hayır, iltica başvurusu sırasında COA kampında kalırsınız. Eğer şiddetli veya tehlikeli davranış gösterirseniz, kamptan çıkarılabilir, ancak bunun için resmi prosedürler izlenir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu sırasında ülke dışına çıkabilir miyim?",
+    "answer": "Hayır, iltica başvurusu işlenirken Hollanda dışına çıkmanız yasaktır. Eğer çıkarsa, başvurunuz reddedilebilir veya iptal edilebilir. Acil durumlar için istisnalar olabilir ancak COA'dan izin almanız gerekir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusu için avukat yardımı alabilir miyim?",
+    "answer": "Evet, avukat yardımı alabilirsiniz. Hollanda'da iltica davalarında devlet destekli hukuki yardım (Rechtsbijstand) sağlanabilir. Bu yardım gelir seviyenize göre değerlendirilir ve kendiniz için bir hukuki temsilci seçebilirsiniz.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusunda çevirmen kullanılabilir mi?",
+    "answer": "Evet, IND mülakatında çevirmen sağlanır. Resmi mülakatı kendi dilinizde yaptırabilirsiniz. Çevirmen, IND tarafından sağlanır ve yasal olarak gizlilik yasağına tabidir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica statüsü aldıktan sonra daha sonra iptal edilebilir mi?",
+    "answer": "Evet, çeşitli durumlarda iltica statüsü iptal edilebilir. Örneğin; yanlış bilgi vermişseniz, ülkenize geri döndüğünüz anlaşılmışsa veya şiddetli suç işlemişseniz statü iptal edilebilir. Hükümet durumunuz hakkında yeni bilgiler aldığında da statü iptal edebilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Hollanda'da sağlık sigortası zorunlu mudur?",
+    "answer": "Evet, Hollanda'da tüm sakinler sağlık sigortasına sahip olmalıdır. İltica talipleri veya statü sahipleri için hükümet tarafından temel sağlık sigortası sağlanabilir. Resmi olarak çalışıyorsanız, işveren sağlık sigortası katkısı yapması gerekir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica talibiyken evlenebilir miyim?",
+    "answer": "Evet, evlenebilirsiniz ancak bazı prosedürleri izlemeniz gerekir. Belediyeye (gemeente) resmi başvuru yapmanız ve gerekli belgeleri sunmanız gerekir. İltica talibiyken evlenirseniz, eşiniz de iltica başvurusunda bulunabilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "İltica başvurusundan sonra ailemi çağırabilirim?",
+    "answer": "Evet, iltica statüsü aldıktan sonra aile birleştirme (gezinshereeniging) başvurusu yapabilirsiniz. Eşiniz, reşit olmayan çocuklarınız ve bazı durumlarda ebeveynleriniz Hollanda'ya gelebilir. Bu resmi bir başvuru prosesidir ve birkaç ay sürebilir.",
+    "category": "asylum"
+  },
+  {
+    "question": "Kampta yaşamak zor geliyor, ne yapabilirim?",
+    "answer": "Kamp yaşamı zorlayıcı olabilir. Bu durumda COA sosyal çalışanlarıyla konuşabilir, ibadet yerlerinde zaman geçirebilir, VluchtelingenWerk gibi yardımcı kuruluşlarla iletişim kurabilirsiniz. Ruh sağlığınız tehlikedeyse tıbbi yardım alabilirsiniz.",
+    "category": "asylum"
+  }
+]
