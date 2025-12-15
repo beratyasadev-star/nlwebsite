@@ -2,26 +2,26 @@ import ContactForm from '@/src/components/ContactForm'
 
 export default function IletisimPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="mb-12 text-center">
-          <h1 className="text-4xl font-bold text-gray-900 mb-4">İletişim</h1>
-          <p className="text-lg text-gray-600">
+    <div className="min-h-screen relative">
+      <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="mb-16 text-center">
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">İletişim</h1>
+          <p className="text-xl text-gray-600">
             İletişime geçmek için lütfen formu doldurun
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
-          <div className="bg-white rounded-lg shadow-lg p-8">
+          <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] p-10 border border-sky-100/50">
             <h2 className="text-2xl font-bold text-gray-900 mb-6">Mesaj Gönderin</h2>
             <ContactForm />
           </div>
 
           {/* Contact Info */}
           <div className="space-y-8">
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">İletişim Bilgileri</h2>
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] p-10 border border-sky-100/50">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">İletişim Bilgileri</h2>
               
               <div className="space-y-6">
                 <div className="flex items-start">
@@ -53,8 +53,8 @@ export default function IletisimPage() {
             </div>
 
             {/* Social Media */}
-            <div className="bg-white rounded-lg shadow-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Sosyal Medya</h2>
+            <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] p-10 border border-sky-100/50">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">Sosyal Medya</h2>
               <div className="flex space-x-4">
                 <a
                   href="https://facebook.com"
@@ -93,8 +93,8 @@ export default function IletisimPage() {
             </div>
 
             {/* Quick Links */}
-            <div className="bg-sky-50 rounded-lg p-8">
-              <h2 className="text-2xl font-bold text-gray-900 mb-4">Faydalı Linkler</h2>
+            <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-3xl p-10 border border-sky-100/50 shadow-sm">
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">Faydalı Linkler</h2>
               <ul className="space-y-2">
                 <li>
                   <a href="https://ind.nl" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-700 flex items-center">

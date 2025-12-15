@@ -1,10 +1,10 @@
 export default function HakkimizdaPage() {
   return (
-    <div className="min-h-screen bg-gray-50">
-      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
-        <div className="bg-white rounded-lg shadow-lg overflow-hidden">
-          <div className="p-8">
-            <h1 className="text-4xl font-bold text-gray-900 mb-8">
+    <div className="min-h-screen relative">
+      <div className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
+        <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] overflow-hidden border border-sky-100/50">
+          <div className="p-12">
+            <h1 className="text-5xl font-bold text-gray-900 mb-10">
               Hakkımızda
             </h1>
 
@@ -67,8 +67,8 @@ export default function HakkimizdaPage() {
                 </li>
               </ul>
 
-              <div className="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 p-6 mt-8">
-                <p className="text-gray-800 font-medium">
+              <div className="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-r-2xl p-8 mt-10 shadow-sm">
+                <p className="text-gray-800 font-semibold text-lg leading-relaxed">
                   🤝 Birlikte daha güçlüyüz! Hollanda'daki yeni yaşamınızda size destek olmaktan mutluluk duyuyoruz.
                 </p>
               </div>
