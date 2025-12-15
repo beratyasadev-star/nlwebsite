@@ -66,12 +66,6 @@ export default function HakkimizdaPage() {
                   <span className="text-gray-700">Sivil toplum kuruluşlarıyla işbirliği ve etkinlikler</span>
                 </li>
               </ul>
-
-              <div className="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 rounded-r-2xl p-8 mt-10 shadow-sm">
-                <p className="text-gray-800 font-semibold text-lg leading-relaxed">
-                  🤝 Birlikte daha güçlüyüz! Hollanda'daki yeni yaşamınızda size destek olmaktan mutluluk duyuyoruz.
-                </p>
-              </div>
             </div>
           </div>
         </div>

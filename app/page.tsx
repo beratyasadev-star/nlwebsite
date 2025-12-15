@@ -52,6 +52,15 @@ export default async function Home() {
               </div>
               <h3 className="text-sm font-bold text-gray-900 group-hover:text-orange-700 transition-colors">İş & Çalışma</h3>
             </Link>
+
+            <Link href="/haberler" className="bg-gradient-to-br from-purple-50 to-purple-100 p-5 rounded-2xl hover:shadow-[0_8px_30px_rgb(168,85,247,0.2)] hover:-translate-y-1 transition-all duration-300 group border border-purple-200/50">
+              <div className="w-14 h-14 bg-gradient-to-br from-purple-500 to-purple-600 rounded-xl flex items-center justify-center mb-4 group-hover:scale-110 group-hover:rotate-3 transition-all duration-300 shadow-lg">
+                <svg className="w-6 h-6 text-white" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M4 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2V6zM14 6a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2V6zM4 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2H6a2 2 0 01-2-2v-2zM14 16a2 2 0 012-2h2a2 2 0 012 2v2a2 2 0 01-2 2h-2a2 2 0 01-2-2v-2z" />
+                </svg>
+              </div>
+              <h3 className="text-sm font-bold text-gray-900 group-hover:text-purple-700 transition-colors">Tüm Gönderiler</h3>
+            </Link>
           </div>
         </div>
       </section>
