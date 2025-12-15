@@ -4,7 +4,7 @@ import { slateEditor } from '@payloadcms/richtext-slate'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
 
 export default buildConfig({
-  serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001',
+  serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'https://nlwebsite.onrender.com',
   admin: {
     user: 'users',
     bundler: webpackBundler(),
