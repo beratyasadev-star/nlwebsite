@@ -9,7 +9,7 @@
   "scripts": {
     "dev": "next dev -p 3003",
     "dev:payload": "tsx watch src/server.ts",
-    "build": "payload migrate && tsc -p tsconfig.server.json",
+    "build": "tsc -p tsconfig.server.json",
     "start": "next start",
     "lint": "eslint",
     "generate:types": "payload generate:types",

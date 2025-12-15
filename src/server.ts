@@ -1,6 +1,7 @@
 import express from 'express'
 import dotenv from 'dotenv'
 import payload from 'payload'
+import path from 'path'
 
 dotenv.config()
 
@@ -22,11 +23,10 @@ const start = async () => {
 
     console.log('⚙️  Initializing Payload...')
 
-
     await payload.init({
-      secret: process.env.PAYLOAD_SECRET as string,
+      secret: process.env.PAYLOAD_SECRET,
       express: app,
-      onInit: async (payload) => {
+      onInit: async () => {
         payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
       },
     })
