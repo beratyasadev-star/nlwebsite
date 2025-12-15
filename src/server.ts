@@ -5,8 +5,16 @@ import payload from 'payload'
 dotenv.config()
 
 console.log('📌 Server starting...')
+
 console.log('MONGODB_URI:', process.env.MONGODB_URI ? '✓' : '✗')
 console.log('PAYLOAD_SECRET:', process.env.PAYLOAD_SECRET ? '✓' : '✗')
+
+if (!process.env.PAYLOAD_SECRET) {
+  throw new Error('PAYLOAD_SECRET environment variable is not set');
+}
+if (!process.env.MONGODB_URI) {
+  throw new Error('MONGODB_URI environment variable is not set');
+}
 
 const start = async () => {
   try {
@@ -14,8 +22,9 @@ const start = async () => {
 
     console.log('⚙️  Initializing Payload...')
 
+
     await payload.init({
-      secret: process.env.PAYLOAD_SECRET,
+      secret: process.env.PAYLOAD_SECRET as string,
       express: app,
       onInit: async (payload) => {
         payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
