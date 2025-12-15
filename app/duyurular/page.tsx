@@ -18,16 +18,21 @@ interface Announcement {
 }
 
 async function getAnnouncements(): Promise<Announcement[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/duyurular?limit=100&where[status][equals]=published&sort=-publishedDate`, {
-    next: { revalidate: 120 }
-  })
-  
-  if (!res.ok) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/duyurular?limit=100&where[status][equals]=published&sort=-publishedDate`, {
+      next: { revalidate: 120 }
+    })
+    
+    if (!res.ok) {
+      return []
+    }
+    
+    const data = await res.json()
+    return data.docs || []
+  } catch (error) {
+    console.warn('getAnnouncements: Could not fetch announcements:', error)
     return []
   }
-  
-  const data = await res.json()
-  return data.docs || []
 }
 
 function formatDate(dateString: string) {

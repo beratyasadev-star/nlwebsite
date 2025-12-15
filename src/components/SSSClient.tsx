@@ -51,7 +51,7 @@ function SSSClient({ faqs }: SSSPageProps) {
         <div className="mb-12 text-center">
           <h1 className="text-4xl font-bold text-gray-900 mb-4">Sık Sorulan Sorular</h1>
           <p className="text-lg text-gray-600">
-            Hollanda'da yaşam hakkında en çok merak edilen soruların cevapları
+            Sık sorulan sorular ve cevapları
           </p>
         </div>
 

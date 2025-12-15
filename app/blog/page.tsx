@@ -18,17 +18,22 @@ interface Article {
 }
 
 async function getArticles(): Promise<Article[]> {
-  const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/blog?limit=100&where[status][equals]=published&sort=-publishedDate`, {
-    next: { revalidate: 120 }
-  })
-  
-  if (!res.ok) {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/blog?limit=100&where[status][equals]=published&sort=-publishedDate`, {
+      next: { revalidate: 120 }
+    })
+    
+    if (!res.ok) {
+      return []
+    }
+    
+    const data = await res.json()
+    console.log('Blog Articles:', JSON.stringify(data.docs?.[0], null, 2))
+    return data.docs || []
+  } catch (error) {
+    console.warn('getArticles: Could not fetch articles:', error)
     return []
   }
-  
-  const data = await res.json()
-  console.log('Blog Articles:', JSON.stringify(data.docs?.[0], null, 2))
-  return data.docs || []
 }
 
 function formatDate(dateString: string) {

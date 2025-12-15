@@ -10,46 +10,66 @@ export default function HakkimizdaPage() {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                NL Onderwijs, Hollanda'daki mültecilere rehberlik etmek ve onların hayatlarını 
-                kolaylaştırmak amacıyla kurulmuş bir platformdur. Amacımız, yeni gelen mültecilere Hollanda'daki 
-                yaşam hakkında doğru ve güncel bilgiler sunmaktır.
+                <strong>NL Onderwijs</strong>, Hollanda'ya iyi bir başlangıç için birbirlerini bilgilendirmek,
+                tavsiyelerde bulunmak ve desteklemek amacıyla bir grup mülteci Kürt aktivistin kurduğu girişimdir.
+              </p>
+
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Ağırlıklı olarak Türkiye ve Kürdistan halklarından oluşan özgürleştirici, dayanışmacı ve
+                tabandan gelen bir oluşumdur.
+              </p>
+
+              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Amacımız</h2>
+              <p className="text-gray-700 leading-relaxed mb-6">
+                Girişimimiz, Hollanda'da yeni gelen göçmenlerin ve ilticaya başvurmuş insanların,
+                Hollanda'daki günlük yaşama uyum sağlamalarına yardımcı olmak, bilgi ve becerilerini
+                topluma kazandırmayı amaçlamaktadır.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Misyonumuz</h2>
               <p className="text-gray-700 leading-relaxed mb-6">
-                Hollanda'ya yeni gelen mültecilerin entegrasyon süreçlerinde karşılaştıkları zorlukları 
-                en aza indirmek ve onlara bu süreçte rehberlik etmek. IND işlemleri, sağlık sigortası, eğitim, 
-                iş bulma gibi konularda güvenilir bilgi kaynağı olmak.
-              </p>
-
-              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Vizyonumuz</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Hollanda'daki en kapsamlı ve güvenilir Türkçe bilgi platformu olmak. Mülteci topluluğunu 
-                bir araya getirerek, deneyim paylaşımını ve dayanışmayı teşvik etmek.
+                İlticacıların ve göçmenlerin isteklerini, hedeflerini, engelleri ve imkânları değerlendirmek
+                ve şartları göze alarak onlara yardım sağlamak misyonunda olan NL Onderwijs, farklı sivil
+                toplum kuruluşlarıyla iş birliği içerisinde etkinlikler yapmaktadır.
               </p>
 
               <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">Ne Sunuyoruz?</h2>
-              <ul className="list-disc list-inside space-y-3 text-gray-700 mb-6">
-                <li>IND işlemleri ve ikamet izni başvuruları hakkında detaylı bilgiler</li>
-                <li>Sağlık sigortası (Zorgverzekering) rehberi</li>
-                <li>COA, DigiD, BSN gibi resmi işlemler hakkında adım adım kılavuzlar</li>
-                <li>Eğitim ve dil öğrenimi imkanları</li>
-                <li>İş bulma ve kariyer geliştirme tavsiyeleri</li>
-                <li>Güncel haberler ve duyurular</li>
-                <li>Sık sorulan sorular ve cevapları</li>
-                <li>WhatsApp topluluk desteği</li>
+              <ul className="space-y-3 mb-6">
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700">İltica ve resmi işlemler hakkında güncel bilgiler</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700">Eğitim ve kariyer geliştirme desteği</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700">Entegrasyon sürecinde rehberlik</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700">Aktif topluluk ve deneyim paylaşımı</span>
+                </li>
+                <li className="flex items-start gap-3">
+                  <svg className="w-6 h-6 text-sky-600 flex-shrink-0 mt-0.5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 12l2 2 4-4m6 2a9 9 0 11-18 0 9 9 0 0118 0z" />
+                  </svg>
+                  <span className="text-gray-700">Sivil toplum kuruluşlarıyla işbirliği ve etkinlikler</span>
+                </li>
               </ul>
 
-              <h2 className="text-2xl font-bold text-gray-900 mt-8 mb-4">İletişim</h2>
-              <p className="text-gray-700 leading-relaxed mb-6">
-                Sorularınız, önerileriniz veya katkıda bulunmak isterseniz bizimle iletişime geçebilirsiniz. 
-                Topluluğumuzun bir parçası olmak için WhatsApp grubumuz katılabilir veya sosyal medya hesaplarımızı 
-                takip edebilirsiniz.
-              </p>
-
-              <div className="bg-sky-50 border-l-4 border-sky-600 p-6 mt-8">
+              <div className="bg-gradient-to-r from-sky-50 to-blue-50 border-l-4 border-sky-600 p-6 mt-8">
                 <p className="text-gray-800 font-medium">
-                  💙 Hollanda'daki yeni hayatınızda size rehberlik etmekten mutluluk duyuyoruz!
+                  🤝 Birlikte daha güçlüyüz! Hollanda'daki yeni yaşamınızda size destek olmaktan mutluluk duyuyoruz.
                 </p>
               </div>
             </div>

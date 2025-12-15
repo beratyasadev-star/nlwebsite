@@ -41,8 +41,9 @@ function formatDate(dateString: string) {
   }).format(date)
 }
 
-export default async function ArticleDetail({ params }: { params: { slug: string } }) {
-  const article = await getArticle(params.slug)
+export default async function ArticleDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const article = await getArticle(slug)
 
   if (!article) {
     notFound()

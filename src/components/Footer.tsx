@@ -51,14 +51,24 @@ export default function Footer() {
                   DigiD
                 </a>
               </li>
+              <li>
+                <a href="https://www.uwv.nl" target="_blank" rel="noopener" className="text-gray-400 hover:text-white transition">
+                  UWV
+                </a>
+              </li>
+              <li>
+                <a href="https://duo.nl" target="_blank" rel="noopener" className="text-gray-400 hover:text-white transition">
+                  DUO
+                </a>
+              </li>
             </ul>
           </div>
           
           <div>
             <h4 className="font-semibold mb-4">İletişim</h4>
-            <p className="text-gray-400">
-              Email: info@hollandarehberi.com
-            </p>
+            <Link href="/iletisim" className="text-gray-400 hover:text-white transition inline-block">
+              Lütfen iletişim formunu doldurun
+            </Link>
           </div>
         </div>
         

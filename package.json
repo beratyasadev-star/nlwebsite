@@ -4,7 +4,7 @@
   "private": true,
   "type": "module",
   "scripts": {
-    "dev": "next dev",
+    "dev": "next dev -p 3003",
     "dev:payload": "tsx watch src/server.ts",
     "build": "payload migrate && next build",
     "start": "next start",

@@ -5,6 +5,37 @@ import { serializeRichText } from '@/src/lib/richtext'
 
 export const revalidate = 3600
 
+async function getAnnouncements() {
+  try {
+    const res = await fetch(`${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/duyurular?limit=100&sort=-publishedDate`, {
+      next: { revalidate: 3600 }
+    })
+    
+    if (!res.ok) {
+      return []
+    }
+    
+    const data = await res.json()
+    return data.docs || []
+  } catch (error) {
+    console.warn('getAnnouncements: Could not fetch announcements')
+    return []
+  }
+}
+
+export async function generateStaticParams() {
+  try {
+    const announcements = await getAnnouncements()
+    
+    return announcements.map((item: any) => ({
+      slug: item.slug,
+    }))
+  } catch (error) {
+    console.warn('generateStaticParams: Could not fetch announcements, returning empty array')
+    return []
+  }
+}
+
 interface Announcement {
   id: string
   title: string
@@ -41,8 +72,9 @@ function formatDate(dateString: string) {
   }).format(date)
 }
 
-export default async function AnnouncementDetail({ params }: { params: { slug: string } }) {
-  const announcement = await getAnnouncement(params.slug)
+export default async function AnnouncementDetail({ params }: { params: Promise<{ slug: string }> }) {
+  const { slug } = await params
+  const announcement = await getAnnouncement(slug)
 
   if (!announcement) {
     notFound()
@@ -87,21 +119,4 @@ export default async function AnnouncementDetail({ params }: { params: { slug: s
       </article>
     </div>
   )
-}
-
-export async function generateStaticParams() {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/duyurular?limit=100&where[status][equals]=published`
-  )
-  
-  if (!res.ok) {
-    return []
-  }
-  
-  const data = await res.json()
-  const announcements = data.docs || []
-  
-  return announcements.map((announcement: Announcement) => ({
-    slug: announcement.slug,
-  }))
 }

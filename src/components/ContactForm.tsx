@@ -6,10 +6,12 @@ export default function ContactForm() {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
+    phone: '',
     subject: '',
     message: ''
   })
   const [status, setStatus] = useState<'idle' | 'sending' | 'success' | 'error'>('idle')
+  const [errorMessage, setErrorMessage] = useState<string>('')
 
   const handleSubmit = async (e: React.FormEvent) => {
     e.preventDefault()
@@ -28,18 +30,23 @@ export default function ContactForm() {
 
       if (!response.ok) {
         console.error('Sunucu hatası:', data)
+        // Payload validation hatası için özel mesaj
+        if (data.error && data.error.includes('email')) {
+          throw new Error('Lütfen geçerli bir e-posta adresi girin (örn: isim@example.com)')
+        }
         throw new Error(data.error || 'Form gönderilemedi')
       }
 
       console.log('Başarılı:', data)
       setStatus('success')
-      setFormData({ name: '', email: '', subject: '', message: '' })
+      setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
       
       setTimeout(() => setStatus('idle'), 3000)
     } catch (error) {
       console.error('Form hatası:', error)
       setStatus('error')
-      setTimeout(() => setStatus('idle'), 3000)
+      setErrorMessage(error instanceof Error ? error.message : 'Bir hata oluştu. Lütfen tekrar deneyin.')
+      setTimeout(() => setStatus('idle'), 5000)
     }
   }
 
@@ -78,6 +85,24 @@ export default function ContactForm() {
           required
           value={formData.email}
           onChange={handleChange}
+          pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
+          title="Geçerli bir e-posta adresi girin (örn: isim@example.com)"
+          placeholder="ornek@email.com"
+          className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-transparent"
+        />
+      </div>
+
+      <div>
+        <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
+          Telefon Numaranız
+        </label>
+        <input
+          type="tel"
+          id="phone"
+          name="phone"
+          value={formData.phone}
+          onChange={handleChange}
+          placeholder="Opsiyonel"
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-transparent"
         />
       </div>
@@ -128,7 +153,12 @@ export default function ContactForm() {
 
       {status === 'error' && (
         <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-          Bir hata oluştu. Lütfen tekrar deneyin.
+          <div className="flex items-start gap-2">
+            <svg className="w-5 h-5 mt-0.5 flex-shrink-0" fill="currentColor" viewBox="0 0 20 20">
+              <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zM8.707 7.293a1 1 0 00-1.414 1.414L8.586 10l-1.293 1.293a1 1 0 101.414 1.414L10 11.414l1.293 1.293a1 1 0 001.414-1.414L11.414 10l1.293-1.293a1 1 0 00-1.414-1.414L10 8.586 8.707 7.293z" clipRule="evenodd" />
+            </svg>
+            <span>{errorMessage}</span>
+          </div>
         </div>
       )}
     </form>

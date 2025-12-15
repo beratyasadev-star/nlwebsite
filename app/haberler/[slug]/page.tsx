@@ -8,19 +8,25 @@ import { notFound } from 'next/navigation'
 export const revalidate = 60
 
 export async function generateStaticParams() {
-  const news = await getNews(100)
-  
-  return news.map((item: any) => ({
-    slug: item.slug,
-  }))
+  try {
+    const news = await getNews(100)
+    
+    return news.map((item: any) => ({
+      slug: item.slug,
+    }))
+  } catch (error) {
+    console.warn('generateStaticParams: Could not fetch news, returning empty array')
+    return []
+  }
 }
 
 export default async function NewsDetailPage({
   params,
 }: {
-  params: { slug: string }
+  params: Promise<{ slug: string }>
 }) {
-  const news = await getNewsBySlug(params.slug)
+  const { slug } = await params
+  const news = await getNewsBySlug(slug)
   
   if (!news) {
     notFound()

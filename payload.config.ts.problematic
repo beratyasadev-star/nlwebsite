@@ -1,18 +1,19 @@
-import { buildConfig } from 'payload/config'
+import path from 'path'
+import { fileURLToPath } from 'url'
+import type { Config } from 'payload'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
-import { slateEditor } from '@payloadcms/richtext-slate'
-import { webpackBundler } from '@payloadcms/bundler-webpack'
 
-export default buildConfig({
+const __dirname = path.dirname(fileURLToPath(import.meta.url))
+
+const config: Config = {
+  secret: process.env.PAYLOAD_SECRET || 'super-secret-payload-key-change-this-in-production-12345',
   serverURL: process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001',
   admin: {
     user: 'users',
-    bundler: webpackBundler(),
     meta: {
       titleSuffix: '- NL Onderwijs',
     },
   },
-  editor: slateEditor({}),
   collections: [
     {
       slug: 'users',
@@ -57,7 +58,8 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
-          async ({ data, req, operation }: any) => {
+          async ({ data, req, operation }) => {
+            // Duplicate işleminde slug'ı güncelle
             if (operation === 'create' && data.slug && req.query?.duplicate) {
               data.slug = `${data.slug}-${Date.now()}`
             }
@@ -89,9 +91,9 @@ export default buildConfig({
           },
           hooks: {
             beforeValidate: [
-              async ({ value, data, operation, req }: any) => {
+              async ({ value, data, operation, req }) => {
                 let slug = value
-
+                
                 if (!slug && data?.title) {
                   slug = data.title
                     .toLowerCase()
@@ -104,34 +106,34 @@ export default buildConfig({
                     .replace(/[^a-z0-9]+/g, '-')
                     .replace(/^-+|-+$/g, '')
                 }
-
+                
                 if (operation === 'create' && slug && req?.payload) {
                   const existing = await req.payload.find({
                     collection: 'haber',
                     where: { slug: { equals: slug } },
                     limit: 1,
                   })
-
+                  
                   if (existing.docs.length > 0) {
                     let counter = 1
                     let newSlug = `${slug}-kopya`
-
+                    
                     while (true) {
                       const check = await req.payload.find({
                         collection: 'haber',
                         where: { slug: { equals: newSlug } },
                         limit: 1,
                       })
-
+                      
                       if (check.docs.length === 0) break
                       counter++
                       newSlug = `${slug}-kopya-${counter}`
                     }
-
+                    
                     slug = newSlug
                   }
                 }
-
+                
                 return slug
               },
             ],
@@ -165,6 +167,7 @@ export default buildConfig({
             { label: 'Sağlık', value: 'health' },
             { label: 'Eğitim', value: 'education' },
             { label: 'İş ve Çalışma', value: 'work' },
+            { label: 'Genel', value: 'general' },
           ],
         },
         {
@@ -208,30 +211,30 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
-          async ({ data, operation, req }: any) => {
+          async ({ data, operation, req }) => {
             if (operation === 'create' && data.slug) {
               const existingDoc = await req.payload.find({
                 collection: 'blog',
                 where: { slug: { equals: data.slug } },
                 limit: 1,
               })
-
+              
               if (existingDoc.docs.length > 0) {
                 let counter = 1
                 let newSlug = `${data.slug}-kopya`
-
+                
                 while (true) {
                   const check = await req.payload.find({
                     collection: 'blog',
                     where: { slug: { equals: newSlug } },
                     limit: 1,
                   })
-
+                  
                   if (check.docs.length === 0) break
                   counter++
                   newSlug = `${data.slug}-kopya-${counter}`
                 }
-
+                
                 data.slug = newSlug
               }
             }
@@ -263,9 +266,9 @@ export default buildConfig({
           },
           hooks: {
             beforeValidate: [
-              async ({ value, data, operation, req }: any) => {
+              async ({ value, data, operation, req }) => {
                 let slug = value
-
+                
                 if (!slug && data?.title) {
                   slug = data.title
                     .toLowerCase()
@@ -278,34 +281,34 @@ export default buildConfig({
                     .replace(/[^a-z0-9]+/g, '-')
                     .replace(/^-+|-+$/g, '')
                 }
-
+                
                 if (operation === 'create' && slug && req?.payload) {
                   const existing = await req.payload.find({
                     collection: 'blog',
                     where: { slug: { equals: slug } },
                     limit: 1,
                   })
-
+                  
                   if (existing.docs.length > 0) {
                     let counter = 1
                     let newSlug = `${slug}-kopya`
-
+                    
                     while (true) {
                       const check = await req.payload.find({
                         collection: 'blog',
                         where: { slug: { equals: newSlug } },
                         limit: 1,
                       })
-
+                      
                       if (check.docs.length === 0) break
                       counter++
                       newSlug = `${slug}-kopya-${counter}`
                     }
-
+                    
                     slug = newSlug
                   }
                 }
-
+                
                 return slug
               },
             ],
@@ -373,30 +376,30 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
-          async ({ data, operation, req }: any) => {
+          async ({ data, operation, req }) => {
             if (operation === 'create' && data.slug) {
               const existingDoc = await req.payload.find({
                 collection: 'duyurular',
                 where: { slug: { equals: data.slug } },
                 limit: 1,
               })
-
+              
               if (existingDoc.docs.length > 0) {
                 let counter = 1
                 let newSlug = `${data.slug}-kopya`
-
+                
                 while (true) {
                   const check = await req.payload.find({
                     collection: 'duyurular',
                     where: { slug: { equals: newSlug } },
                     limit: 1,
                   })
-
+                  
                   if (check.docs.length === 0) break
                   counter++
                   newSlug = `${data.slug}-kopya-${counter}`
                 }
-
+                
                 data.slug = newSlug
               }
             }
@@ -428,9 +431,9 @@ export default buildConfig({
           },
           hooks: {
             beforeValidate: [
-              async ({ value, data, operation, req }: any) => {
+              async ({ value, data, operation, req }) => {
                 let slug = value
-
+                
                 if (!slug && data?.title) {
                   slug = data.title
                     .toLowerCase()
@@ -443,34 +446,34 @@ export default buildConfig({
                     .replace(/[^a-z0-9]+/g, '-')
                     .replace(/^-+|-+$/g, '')
                 }
-
+                
                 if (operation === 'create' && slug && req?.payload) {
                   const existing = await req.payload.find({
                     collection: 'duyurular',
                     where: { slug: { equals: slug } },
                     limit: 1,
                   })
-
+                  
                   if (existing.docs.length > 0) {
                     let counter = 1
                     let newSlug = `${slug}-kopya`
-
+                    
                     while (true) {
                       const check = await req.payload.find({
                         collection: 'duyurular',
                         where: { slug: { equals: newSlug } },
                         limit: 1,
                       })
-
+                      
                       if (check.docs.length === 0) break
                       counter++
                       newSlug = `${slug}-kopya-${counter}`
                     }
-
+                    
                     slug = newSlug
                   }
                 }
-
+                
                 return slug
               },
             ],
@@ -541,30 +544,30 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
-          async ({ data, operation, req }: any) => {
+          async ({ data, operation, req }) => {
             if (operation === 'create' && data.slug) {
               const existingDoc = await req.payload.find({
                 collection: 'sss',
                 where: { slug: { equals: data.slug } },
                 limit: 1,
               })
-
+              
               if (existingDoc.docs.length > 0) {
                 let counter = 1
                 let newSlug = `${data.slug}-kopya`
-
+                
                 while (true) {
                   const check = await req.payload.find({
                     collection: 'sss',
                     where: { slug: { equals: newSlug } },
                     limit: 1,
                   })
-
+                  
                   if (check.docs.length === 0) break
                   counter++
                   newSlug = `${data.slug}-kopya-${counter}`
                 }
-
+                
                 data.slug = newSlug
               }
             }
@@ -601,6 +604,7 @@ export default buildConfig({
             { label: 'Sağlık', value: 'health' },
             { label: 'Eğitim', value: 'education' },
             { label: 'İş ve Çalışma', value: 'work' },
+            { label: 'Genel', value: 'general' },
           ],
         },
         {
@@ -611,112 +615,6 @@ export default buildConfig({
           admin: {
             description: 'Soruların görüntülenme sırası. Boş bırakılabilir, 0 varsayılan değerdir.',
           },
-        },
-      ],
-      timestamps: true,
-    },
-    {
-      slug: 'whatsapp-requests',
-      labels: {
-        singular: 'WhatsApp Grup Talebi',
-        plural: 'WhatsApp Grup Talepleri',
-      },
-      admin: {
-        useAsTitle: 'name',
-        defaultColumns: ['name', 'email', 'phone', 'status', 'createdAt'],
-      },
-      access: {
-        read: () => true,
-        create: () => true,
-        update: () => true,
-        delete: () => true,
-      },
-      fields: [
-        {
-          name: 'name',
-          type: 'text',
-          required: true,
-          label: 'İsim',
-        },
-        {
-          name: 'email',
-          type: 'email',
-          required: false,
-          label: 'E-posta (Opsiyonel)',
-        },
-        {
-          name: 'phone',
-          type: 'text',
-          required: true,
-          label: 'Telefon',
-        },
-        {
-          name: 'status',
-          type: 'select',
-          required: true,
-          defaultValue: 'pending',
-          label: 'Durum',
-          options: [
-            { label: 'Beklemede', value: 'pending' },
-            { label: 'Onaylandı', value: 'approved' },
-            { label: 'Reddedildi', value: 'rejected' },
-          ],
-        },
-        {
-          name: 'notes',
-          type: 'textarea',
-          required: false,
-          label: 'Notlar (İç Kullanım)',
-        },
-      ],
-      timestamps: true,
-    },
-    {
-      slug: 'contact',
-      labels: {
-        singular: 'İletişim Mesajı',
-        plural: 'İletişim Mesajları',
-      },
-      admin: {
-        useAsTitle: 'name',
-        defaultColumns: ['name', 'email', 'phone', 'subject', 'createdAt'],
-      },
-      access: {
-        read: () => true,
-        create: () => true,
-        update: () => true,
-        delete: () => true,
-      },
-      fields: [
-        {
-          name: 'name',
-          type: 'text',
-          required: true,
-          label: 'İsim',
-        },
-        {
-          name: 'email',
-          type: 'email',
-          required: true,
-          label: 'E-posta',
-        },
-        {
-          name: 'phone',
-          type: 'text',
-          required: false,
-          label: 'Telefon',
-        },
-        {
-          name: 'subject',
-          type: 'text',
-          required: true,
-          label: 'Konu',
-        },
-        {
-          name: 'message',
-          type: 'textarea',
-          required: true,
-          label: 'Mesaj',
         },
       ],
       timestamps: true,
@@ -735,7 +633,7 @@ export default buildConfig({
         delete: () => true,
       },
       upload: {
-        staticDir: 'public/media',
+        staticDir: path.resolve(__dirname, './public/media'),
         staticURL: '/media',
         imageSizes: [
           {
@@ -768,4 +666,6 @@ export default buildConfig({
   db: mongooseAdapter({
     url: process.env.MONGODB_URI || '',
   }),
-})
+}
+
+export default config
