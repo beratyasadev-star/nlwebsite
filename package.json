@@ -6,11 +6,12 @@
   "scripts": {
     "dev": "next dev -p 3003",
     "dev:payload": "tsx watch src/server.ts",
-    "build": "payload migrate && next build",
+    "build": "payload migrate",
     "start": "next start",
     "lint": "eslint",
     "generate:types": "payload generate:types",
-    "payload": "payload"
+    "payload": "payload",
+    "start:payload": "node dist/server.js"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.7",
