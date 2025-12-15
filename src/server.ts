@@ -33,10 +33,10 @@ const start = async () => {
 
     console.log('✅ Payload initialized, starting listener...')
 
-    const PORT = 3001
+    const PORT = process.env.PORT || 3001;
     app.listen(PORT, () => {
       console.log('\n✅ SERVER RUNNING\n')
-      console.log('Admin: http://localhost:3001/admin')
+      console.log(`Admin: http://localhost:${PORT}/admin`)
     })
 
   } catch (error) {
