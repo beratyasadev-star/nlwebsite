@@ -1,0 +1,23 @@
+{
+  "extends": "./tsconfig.json",
+  "compilerOptions": {
+    "module": "node16",
+    "outDir": "./dist",
+    "target": "ES2017",
+    "esModuleInterop": true,
+    "skipLibCheck": true,
+    "strict": true,
+    "resolveJsonModule": true,
+    "moduleResolution": "node16",
+    "allowSyntheticDefaultImports": true
+  },
+  "include": [
+    "src/**/*",
+    "payload.config.ts"
+  ],
+  "exclude": [
+    "node_modules",
+    "app",
+    "public"
+  ]
+}
