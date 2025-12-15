@@ -12,12 +12,14 @@
     "allowSyntheticDefaultImports": true
   },
   "include": [
-    "src/**/*",
+    "src/server.ts",
     "payload.config.ts"
   ],
   "exclude": [
     "node_modules",
     "app",
-    "public"
+    "public",
+    "src/lib",
+    "src/components"
   ]
 }
