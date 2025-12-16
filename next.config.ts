@@ -15,6 +15,11 @@ const nextConfig: NextConfig = {
         port: '3001',
         pathname: '/media/**',
       },
+      {
+        protocol: 'https',
+        hostname: 'nlwebsite.onrender.com',
+        pathname: '/media/**',
+      },
     ],
     formats: ['image/avif', 'image/webp'],
   },
