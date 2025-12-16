@@ -32,30 +32,6 @@ const start = async () => {
       express: app,
       onInit: async (payload) => {
         payload.logger.info(`Payload Admin URL: ${payload.getAdminURL()}`)
-
-        // Add Cloudinary hooks at runtime if enabled
-        if (process.env.CLOUDINARY_ENABLED === 'true') {
-          const { syncToCloudinary, deleteFromCloudinary } = await import('./cloudinary-hooks')
-
-          // Inject hooks into medya collection
-          const medyaCollection = payload.collections['medya']
-          if (medyaCollection) {
-            if (!medyaCollection.config.hooks) {
-              medyaCollection.config.hooks = {}
-            }
-            if (!medyaCollection.config.hooks.afterChange) {
-              medyaCollection.config.hooks.afterChange = []
-            }
-            if (!medyaCollection.config.hooks.afterDelete) {
-              medyaCollection.config.hooks.afterDelete = []
-            }
-
-            medyaCollection.config.hooks.afterChange.push(syncToCloudinary)
-            medyaCollection.config.hooks.afterDelete.push(deleteFromCloudinary)
-
-            payload.logger.info('✅ Cloudinary hooks enabled')
-          }
-        }
       },
     })
 
