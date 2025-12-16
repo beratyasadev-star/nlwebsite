@@ -1,5 +1,6 @@
 import { v2 as cloudinary } from 'cloudinary'
 import { CollectionAfterChangeHook, CollectionAfterDeleteHook } from 'payload/types'
+import { MongoClient } from 'mongodb'
 
 // Configure Cloudinary
 cloudinary.config({
@@ -43,34 +44,28 @@ export const syncToCloudinary: CollectionAfterChangeHook = async ({ doc, req, op
       }
     }
 
-    // Do a silent background update to persist to DB
+    // Do a silent background update to persist to DB using raw MongoDB
     setTimeout(async () => {
       try {
-        const updateData: any = {
-          url: result.secure_url,
-          cloudinaryURL: result.secure_url,
-        }
+        const client = new MongoClient(process.env.MONGODB_URI!)
+        await client.connect()
 
-        // Update sizes if they exist
-        if (doc.sizes) {
-          updateData.sizes = {
-            ...doc.sizes,
-            thumbnail: {
-              ...doc.sizes.thumbnail,
-              url: thumbnailUrl,
-            },
-            card: {
-              ...doc.sizes.card,
-              url: cardUrl,
+        const db = client.db('hollanda-rehberi')
+        const collection = db.collection('medyas')
+
+        await collection.updateOne(
+          { _id: doc.id },
+          {
+            $set: {
+              url: result.secure_url,
+              cloudinaryURL: result.secure_url,
+              'sizes.thumbnail.url': thumbnailUrl,
+              'sizes.card.url': cardUrl,
             },
           }
-        }
+        )
 
-        await req.payload.update({
-          collection: 'medya',
-          id: doc.id,
-          data: updateData,
-        })
+        await client.close()
         console.log(`✅ Uploaded to Cloudinary: ${result.secure_url}`)
       } catch (err) {
         console.error('Background update error:', err)
