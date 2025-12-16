@@ -8,7 +8,8 @@
   "scripts": {
     "dev": "next dev -p 3003",
     "dev:payload": "tsx watch src/server.ts",
-    "build": "payload build && tsc -p tsconfig.server.json",
+    "build": "next build",
+    "build:backend": "payload build && tsc -p tsconfig.server.json",
     "start": "next start",
     "lint": "eslint",
     "generate:types": "payload generate:types",
