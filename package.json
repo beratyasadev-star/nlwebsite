@@ -9,12 +9,12 @@
     "dev": "next dev -p 3003",
     "dev:payload": "tsx watch src/server.ts",
     "build": "next build",
-    "build:backend": "INIT_DIR=$(pwd) && payload build && tsc -p $INIT_DIR/tsconfig.server.json && cd $INIT_DIR",
+    "build:backend": "npx payload build && npx tsc -p tsconfig.server.json",
     "start": "next start",
     "lint": "eslint",
     "generate:types": "payload generate:types",
     "payload": "payload",
-    "start:payload": "node dist/server.js"
+    "start:payload": "node /opt/render/project/dist/server.js"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.7",
