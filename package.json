@@ -14,7 +14,8 @@
     "lint": "eslint",
     "generate:types": "payload generate:types",
     "payload": "payload",
-    "start:payload": "tsx src/server.ts"
+    "start:payload": "tsx src/server.ts",
+    "migrate:cloudinary": "tsx scripts/migrate-to-cloudinary.ts"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.7",
