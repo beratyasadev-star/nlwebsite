@@ -22,7 +22,7 @@ const start = async () => {
     const app = express()
 
     // Serve static files from public directory
-    app.use('/media', express.static(path.join(__dirname, '../public/media')))
+    app.use('/media', express.static(path.join(__dirname, '../../public/media')))
     console.log('📁 Static files: /media -> public/media')
 
     console.log('⚙️  Initializing Payload...')
