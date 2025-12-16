@@ -759,6 +759,13 @@ export default buildConfig({
           type: 'text',
           label: 'Alternatif Metin',
         },
+        {
+          name: 'cloudinaryURL',
+          type: 'text',
+          admin: {
+            hidden: true,
+          },
+        },
       ],
     },
   ],
