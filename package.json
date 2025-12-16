@@ -14,7 +14,7 @@
     "lint": "eslint",
     "generate:types": "payload generate:types",
     "payload": "payload",
-    "start:payload": "node \"$(pwd)/dist/server.js\""
+    "start:payload": "node -e \"require('./dist/server.js')\""
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.7",
