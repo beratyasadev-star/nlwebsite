@@ -6,18 +6,11 @@ import Link from 'next/link'
 import { notFound } from 'next/navigation'
 
 export const revalidate = 60
+export const dynamicParams = true
 
+// Build time'da fetch skip edildi - runtime'da dynamic olarak render edilecek
 export async function generateStaticParams() {
-  try {
-    const news = await getNews(100)
-    
-    return news.map((item: any) => ({
-      slug: item.slug,
-    }))
-  } catch (error) {
-    console.warn('generateStaticParams: Could not fetch news, returning empty array')
-    return []
-  }
+  return [] // Empty array - all pages will be generated on-demand
 }
 
 export default async function NewsDetailPage({

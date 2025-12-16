@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { serializeRichText } from '@/src/lib/richtext'
 
 export const revalidate = 3600
+export const dynamicParams = true
 
 async function getAnnouncements() {
   try {

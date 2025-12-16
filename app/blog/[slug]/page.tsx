@@ -4,6 +4,7 @@ import { notFound } from 'next/navigation'
 import { serializeRichText } from '@/src/lib/richtext'
 
 export const revalidate = 3600
+export const dynamicParams = true // Allow dynamic params not in generateStaticParams
 
 interface Article {
   id: string
@@ -90,25 +91,7 @@ export default async function ArticleDetail({ params }: { params: Promise<{ slug
   )
 }
 
+// Build time'da fetch skip edildi - runtime'da dynamic olarak render edilecek
 export async function generateStaticParams() {
-  try {
-    const res = await fetch(
-      `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/blog?limit=100&where[status][equals]=published`,
-      { next: { revalidate: 3600 } }
-    )
-    
-    if (!res.ok) {
-      return []
-    }
-    
-    const data = await res.json()
-    const articles = data.docs || []
-    
-    return articles.map((article: Article) => ({
-      slug: article.slug,
-    }))
-  } catch (error) {
-    console.error('Error generating static params:', error)
-    return []
-  }
+  return [] // Empty array - all pages will be generated on-demand
 }
