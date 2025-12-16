@@ -22,6 +22,8 @@ const nextConfig: NextConfig = {
       },
     ],
     formats: ['image/avif', 'image/webp'],
+    unoptimized: false,
+    minimumCacheTTL: 60,
   },
   experimental: {
     reactCompiler: false,
