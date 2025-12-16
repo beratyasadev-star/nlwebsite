@@ -23,11 +23,12 @@ export const syncToCloudinary: CollectionAfterChangeHook = async ({ doc, req, op
       public_id: doc.filename.replace(/\.[^.]+$/, ''),
     })
 
-    // Update document with Cloudinary URL
+    // Update document with Cloudinary URL (both url and cloudinaryURL)
     await req.payload.update({
       collection: 'medya',
       id: doc.id,
       data: {
+        url: result.secure_url,
         cloudinaryURL: result.secure_url,
       },
     })
