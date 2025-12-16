@@ -46,15 +46,30 @@ export const syncToCloudinary: CollectionAfterChangeHook = async ({ doc, req, op
     // Do a silent background update to persist to DB
     setTimeout(async () => {
       try {
+        const updateData: any = {
+          url: result.secure_url,
+          cloudinaryURL: result.secure_url,
+        }
+
+        // Update sizes if they exist
+        if (doc.sizes) {
+          updateData.sizes = {
+            ...doc.sizes,
+            thumbnail: {
+              ...doc.sizes.thumbnail,
+              url: thumbnailUrl,
+            },
+            card: {
+              ...doc.sizes.card,
+              url: cardUrl,
+            },
+          }
+        }
+
         await req.payload.update({
           collection: 'medya',
           id: doc.id,
-          data: {
-            url: result.secure_url,
-            cloudinaryURL: result.secure_url,
-            'sizes.thumbnail.url': thumbnailUrl,
-            'sizes.card.url': cardUrl,
-          },
+          data: updateData,
         })
         console.log(`✅ Uploaded to Cloudinary: ${result.secure_url}`)
       } catch (err) {
