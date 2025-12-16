@@ -3,7 +3,7 @@
   "compilerOptions": {
     "module": "commonjs",
     "outDir": "./dist",
-    "rootDir": "./src",
+    "noEmit": false,
     "target": "ES2017",
     "esModuleInterop": true,
     "skipLibCheck": true,
@@ -14,13 +14,10 @@
     "noImplicitAny": false
   },
   "include": [
-    "src/server.ts"
+    "src/server.ts",
+    "payload.config.ts"
   ],
   "exclude": [
-    "node_modules",
-    "app",
-    "public",
-    "src/lib",
-    "src/components"
+    "node_modules"
   ]
 }
