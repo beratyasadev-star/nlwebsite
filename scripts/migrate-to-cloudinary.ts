@@ -40,7 +40,7 @@ const migrate = async () => {
     for (const media of medias.docs) {
       try {
         // Skip if URL already points to Cloudinary
-        if (media.url && media.url.includes('cloudinary.com')) {
+        if (media.url && typeof media.url === 'string' && media.url.includes('cloudinary.com')) {
           console.log(`⏭️  Skipping ${media.filename} (already migrated)`)
           skipCount++
           continue

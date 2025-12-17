@@ -44,6 +44,7 @@
     "node_modules",
     "src/server.ts",
     "tsconfig.server.json",
-    "dist"
+    "dist",
+    "scripts/**/*"
   ]
 }
