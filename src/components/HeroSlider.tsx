@@ -76,7 +76,7 @@ export default function HeroSlider({ items }: HeroSliderProps) {
   
   return (
     <div
-      className="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-xl bg-gray-900"
+      className="relative h-[320px] md:h-[500px] w-full overflow-hidden rounded-xl bg-gray-900"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
@@ -94,19 +94,16 @@ export default function HeroSlider({ items }: HeroSliderProps) {
           />
         )}
 
-        <div className="absolute inset-0 bg-gradient-to-t from-black/80 via-black/50 to-transparent" />
+        <div className="absolute inset-0 bg-gradient-to-t from-black/90 via-black/50 to-transparent" />
 
-        <div className="absolute bottom-8 md:bottom-12 left-0 right-0 px-8 md:px-12 text-white">
+        <div className="absolute bottom-6 md:bottom-10 left-0 right-0 px-6 md:px-12 text-white">
           <div className="max-w-3xl">
-            <h2 className="text-3xl md:text-5xl font-bold mb-4 drop-shadow-lg">
+            <h2 className="text-2xl md:text-5xl font-bold mb-3 md:mb-4 drop-shadow-lg line-clamp-2">
               {currentItem.title}
             </h2>
-            <p className="text-lg md:text-xl mb-6 text-gray-200 line-clamp-2">
+            <p className="text-sm md:text-xl text-gray-200 line-clamp-2 md:line-clamp-3">
               {currentItem.excerpt}
             </p>
-            <span className="inline-block bg-sky-600 hover:bg-sky-700 text-white font-semibold px-8 py-3 rounded-lg transition">
-              Devamını Oku
-            </span>
           </div>
         </div>
       </Link>
