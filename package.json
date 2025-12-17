@@ -15,7 +15,9 @@
     "generate:types": "payload generate:types",
     "payload": "payload",
     "start:payload": "tsx src/server.ts",
-    "migrate:cloudinary": "tsx scripts/migrate-to-cloudinary.ts"
+    "migrate:cloudinary": "tsx scripts/migrate-to-cloudinary.ts",
+    "fix:urls": "tsx scripts/fix-urls.ts",
+    "copy:disk": "tsx scripts/copy-to-disk.ts"
   },
   "dependencies": {
     "@payloadcms/bundler-webpack": "^1.0.7",
