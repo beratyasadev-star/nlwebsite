@@ -2,9 +2,11 @@
 
 import Link from 'next/link'
 import { useState } from 'react'
+import { usePathname } from 'next/navigation'
 
 export default function Header() {
   const [isMobileMenuOpen, setIsMobileMenuOpen] = useState(false)
+  const pathname = usePathname()
 
   return (
     <header className="bg-white border-b-2 border-sky-100 sticky top-0 z-50 shadow-md">
@@ -60,9 +62,79 @@ export default function Header() {
         {/* Mobile Menu */}
         {isMobileMenuOpen && (
           <div className="md:hidden border-t border-gray-100 py-4">
-            {/* Hızlı Erişim */}
+            {/* Sayfalar */}
             <div className="mb-4">
-              <h3 className="px-4 text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
+              <h3 className="px-4 text-base font-bold text-gray-700 uppercase tracking-wider mb-3">
+                Sayfalar
+              </h3>
+              <Link
+                href="/"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                Ana Sayfa
+              </Link>
+              <Link
+                href="/haberler"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/haberler' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                Bilgi Bankası
+              </Link>
+              <Link
+                href="/blog"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/blog' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                Blog
+              </Link>
+              <Link
+                href="/duyurular"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/duyurular' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                Duyurular
+              </Link>
+              <Link
+                href="/sss"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/sss' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                Sık Sorulan Sorular
+              </Link>
+              <Link
+                href="/hakkimizda"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/hakkimizda' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                Hakkımızda
+              </Link>
+              <Link
+                href="/iletisim"
+                onClick={() => setIsMobileMenuOpen(false)}
+                className={`block px-4 py-3 hover:bg-sky-50 transition ${
+                  pathname === '/iletisim' ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
+                }`}
+              >
+                İletişim
+              </Link>
+            </div>
+
+            {/* Hızlı Erişim */}
+            <div>
+              <h3 className="px-4 text-base font-bold text-gray-700 uppercase tracking-wider mb-3">
                 Hızlı Erişim
               </h3>
               <Link
@@ -92,62 +164,6 @@ export default function Header() {
                 className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition"
               >
                 İş & Çalışma
-              </Link>
-            </div>
-
-            {/* Sayfalar */}
-            <div>
-              <h3 className="px-4 text-sm font-semibold text-gray-500 uppercase tracking-wider mb-2">
-                Sayfalar
-              </h3>
-              <Link
-                href="/"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                Ana Sayfa
-              </Link>
-              <Link
-                href="/haberler"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                Bilgi Bankası
-              </Link>
-              <Link
-                href="/blog"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                Blog
-              </Link>
-              <Link
-                href="/duyurular"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                Duyurular
-              </Link>
-              <Link
-                href="/sss"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                Sık Sorulan Sorular
-              </Link>
-              <Link
-                href="/hakkimizda"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                Hakkımızda
-              </Link>
-              <Link
-                href="/iletisim"
-                onClick={() => setIsMobileMenuOpen(false)}
-                className="block px-4 py-3 text-gray-700 hover:bg-sky-50 hover:text-sky-600 transition font-medium"
-              >
-                İletişim
               </Link>
             </div>
           </div>
