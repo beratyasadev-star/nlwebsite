@@ -58,7 +58,7 @@ export default function WhatsAppJoinForm() {
         </div>
         <div className="flex-1">
           <h3 className="text-xl font-bold text-gray-900">WhatsApp Grubumuza Katılın</h3>
-          <p className="text-green-700 text-sm">Hollanda'daki Türkler için destek topluluğu</p>
+          <p className="text-green-700 text-sm">Hollanda'da yaşayan Kürdistanlı ve Türkiyeli mültecilerin dayanışma topluluğu</p>
         </div>
       </div>
 
