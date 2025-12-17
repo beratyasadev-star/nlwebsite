@@ -33,7 +33,7 @@ export default function HeroSlider({ items }: HeroSliderProps) {
 
     autoPlayRef.current = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % items.length)
-    }, 8000) // 8 saniye
+    }, 5000) // 5 saniye
 
     return () => {
       if (autoPlayRef.current) {
