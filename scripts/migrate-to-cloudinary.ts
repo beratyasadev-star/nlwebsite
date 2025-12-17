@@ -39,9 +39,9 @@ const migrate = async () => {
 
     for (const media of medias.docs) {
       try {
-        // Skip if already has Cloudinary URL
-        if (media.cloudinaryURL) {
-          console.log(`⏭️  Skipping ${media.filename} (already in Cloudinary)`)
+        // Skip if URL already points to Cloudinary
+        if (media.url && media.url.includes('cloudinary.com')) {
+          console.log(`⏭️  Skipping ${media.filename} (already migrated)`)
           skipCount++
           continue
         }
@@ -62,17 +62,43 @@ const migrate = async () => {
           public_id: media.filename.replace(/\.[^.]+$/, ''),
         })
 
-        // Update MongoDB
+        // Generate Cloudinary URLs for sizes
+        const baseUrl = result.secure_url.split('/upload/')[0] + '/upload/'
+        const imagePath = result.secure_url.split('/upload/')[1]
+
+        const thumbnailUrl = `${baseUrl}w_400,h_300,c_fill/${imagePath}`
+        const cardUrl = `${baseUrl}w_768,h_432,c_fill/${imagePath}`
+
+        // Update MongoDB with all URLs
+        const updateData: any = {
+          url: result.secure_url,
+          cloudinaryURL: result.secure_url,
+        }
+
+        // Update sizes if they exist
+        if (media.sizes) {
+          updateData.sizes = {
+            ...media.sizes,
+            thumbnail: {
+              ...media.sizes.thumbnail,
+              url: thumbnailUrl,
+            },
+            card: {
+              ...media.sizes.card,
+              url: cardUrl,
+            },
+          }
+        }
+
         await payload.update({
           collection: 'medya',
           id: media.id,
-          data: {
-            url: result.secure_url,
-            cloudinaryURL: result.secure_url,
-          },
+          data: updateData,
         })
 
-        console.log(`✅ Uploaded: ${result.secure_url}\n`)
+        console.log(`✅ Uploaded: ${result.secure_url}`)
+        console.log(`   Thumbnail: ${thumbnailUrl}`)
+        console.log(`   Card: ${cardUrl}\n`)
         successCount++
       } catch (error) {
         console.error(`❌ Error uploading ${media.filename}:`, error)

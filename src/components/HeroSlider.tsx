@@ -1,6 +1,6 @@
 'use client'
 
-import { useState, useEffect } from 'react'
+import { useState, useEffect, useRef } from 'react'
 import Link from 'next/link'
 import Image from 'next/image'
 
@@ -20,25 +20,48 @@ interface HeroSliderProps {
 
 export default function HeroSlider({ items }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
-  
+  const touchStartX = useRef(0)
+  const touchEndX = useRef(0)
+
   useEffect(() => {
     const timer = setInterval(() => {
       setCurrentIndex((prev) => (prev + 1) % items.length)
     }, 5000)
-    
+
     return () => clearInterval(timer)
   }, [items.length])
-  
+
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
   }
-  
+
   const goToPrevious = () => {
     setCurrentIndex((prev) => (prev - 1 + items.length) % items.length)
   }
-  
+
   const goToNext = () => {
     setCurrentIndex((prev) => (prev + 1) % items.length)
+  }
+
+  // Touch handlers for swipe
+  const handleTouchStart = (e: React.TouchEvent) => {
+    touchStartX.current = e.targetTouches[0].clientX
+  }
+
+  const handleTouchMove = (e: React.TouchEvent) => {
+    touchEndX.current = e.targetTouches[0].clientX
+  }
+
+  const handleTouchEnd = () => {
+    if (touchStartX.current - touchEndX.current > 75) {
+      // Swiped left - go to next
+      goToNext()
+    }
+
+    if (touchStartX.current - touchEndX.current < -75) {
+      // Swiped right - go to previous
+      goToPrevious()
+    }
   }
   
   if (!items.length) return null
@@ -52,7 +75,12 @@ export default function HeroSlider({ items }: HeroSliderProps) {
   const currentItem = items[currentIndex]
   
   return (
-    <div className="relative h-[500px] w-full overflow-hidden rounded-xl bg-gray-900">
+    <div
+      className="relative h-[400px] md:h-[500px] w-full overflow-hidden rounded-xl bg-gray-900"
+      onTouchStart={handleTouchStart}
+      onTouchMove={handleTouchMove}
+      onTouchEnd={handleTouchEnd}
+    >
       <div className="absolute inset-0">
         {currentItem.featuredImage?.url && (
           <Image
