@@ -36,19 +36,6 @@ export default function IletisimPage() {
                     <p className="text-gray-600">Hollanda</p>
                   </div>
                 </div>
-
-                <div className="flex items-start">
-                  <div className="flex-shrink-0">
-                    <svg className="w-6 h-6 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
-                      <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 8v4l3 3m6-3a9 9 0 11-18 0 9 9 0 0118 0z" />
-                    </svg>
-                  </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Çalışma Saatleri</h3>
-                    <p className="text-gray-600">Pazartesi - Cuma: 09:00 - 18:00</p>
-                    <p className="text-gray-600">Cumartesi - Pazar: Kapalı</p>
-                  </div>
-                </div>
               </div>
             </div>
 
