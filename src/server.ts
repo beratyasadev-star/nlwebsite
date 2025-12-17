@@ -21,9 +21,9 @@ const start = async () => {
   try {
     const app = express()
 
-    // Serve static files from public directory
-    app.use('/media', express.static(path.join(__dirname, '../public/media')))
-    console.log('📁 Static files: /media -> public/media')
+    // Serve static files from Render Disk
+    app.use('/media', express.static('/data/media'))
+    console.log('📁 Static files: /media -> /data/media')
 
     console.log('⚙️  Initializing Payload...')
 

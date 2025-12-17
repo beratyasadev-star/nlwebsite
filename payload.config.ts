@@ -735,7 +735,7 @@ export default buildConfig({
         delete: () => true,
       },
       upload: {
-        staticDir: 'public/media',
+        staticDir: '/data/media',
         staticURL: '/media',
         imageSizes: [
           {
