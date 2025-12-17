@@ -20,16 +20,46 @@ interface HeroSliderProps {
 
 export default function HeroSlider({ items }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
+  const [isAutoPlayActive, setIsAutoPlayActive] = useState(true)
+  const [isPaused, setIsPaused] = useState(false)
+  const [isTransitioning, setIsTransitioning] = useState(false)
   const touchStartX = useRef(0)
   const touchEndX = useRef(0)
+  const autoPlayRef = useRef<NodeJS.Timeout | null>(null)
 
+  // Auto-play effect
   useEffect(() => {
-    const timer = setInterval(() => {
-      setCurrentIndex((prev) => (prev + 1) % items.length)
-    }, 5000)
+    if (!isAutoPlayActive || isPaused) return
 
-    return () => clearInterval(timer)
-  }, [items.length])
+    autoPlayRef.current = setInterval(() => {
+      setCurrentIndex((prev) => (prev + 1) % items.length)
+    }, 8000) // 8 saniye
+
+    return () => {
+      if (autoPlayRef.current) {
+        clearInterval(autoPlayRef.current)
+      }
+    }
+  }, [items.length, isAutoPlayActive, isPaused, currentIndex])
+
+  // Manuel kontrol - auto-play'i resetle
+  const handleManualControl = (callback: () => void) => {
+    setIsTransitioning(true)
+    setTimeout(() => {
+      callback()
+      setIsTransitioning(false)
+    }, 150)
+
+    // Auto-play'i durdur ve 15 saniye sonra yeniden başlat
+    setIsAutoPlayActive(false)
+    if (autoPlayRef.current) {
+      clearInterval(autoPlayRef.current)
+    }
+
+    setTimeout(() => {
+      setIsAutoPlayActive(true)
+    }, 15000) // 15 saniye kullanıcının incelemesi için
+  }
 
   const goToSlide = (index: number) => {
     setCurrentIndex(index)
@@ -55,12 +85,12 @@ export default function HeroSlider({ items }: HeroSliderProps) {
   const handleTouchEnd = () => {
     if (touchStartX.current - touchEndX.current > 75) {
       // Swiped left - go to next
-      goToNext()
+      handleManualControl(goToNext)
     }
 
     if (touchStartX.current - touchEndX.current < -75) {
       // Swiped right - go to previous
-      goToPrevious()
+      handleManualControl(goToPrevious)
     }
   }
   
@@ -76,12 +106,19 @@ export default function HeroSlider({ items }: HeroSliderProps) {
   
   return (
     <div
-      className="relative h-[320px] md:h-[500px] w-full overflow-hidden rounded-xl bg-gray-900"
+      className="relative h-[320px] md:h-[500px] w-full overflow-hidden rounded-xl bg-gray-900 group"
       onTouchStart={handleTouchStart}
       onTouchMove={handleTouchMove}
       onTouchEnd={handleTouchEnd}
+      onMouseEnter={() => setIsPaused(true)}
+      onMouseLeave={() => setIsPaused(false)}
     >
-      <Link href={`/haberler/${currentItem.slug}`} className="absolute inset-0 cursor-pointer">
+      <Link
+        href={`/haberler/${currentItem.slug}`}
+        className={`absolute inset-0 cursor-pointer transition-opacity duration-300 ${
+          isTransitioning ? 'opacity-0' : 'opacity-100'
+        }`}
+      >
         {currentItem.featuredImage?.url && (
           <Image
             src={fixImageUrl(currentItem.featuredImage.url) || '/placeholder.jpg'}
@@ -113,12 +150,12 @@ export default function HeroSlider({ items }: HeroSliderProps) {
         onClick={(e) => {
           e.preventDefault()
           e.stopPropagation()
-          goToPrevious()
+          handleManualControl(goToPrevious)
         }}
-        className="absolute left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition z-20"
+        className="absolute left-2 md:left-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 md:p-3 rounded-full backdrop-blur-sm transition-all duration-200 md:opacity-0 md:group-hover:opacity-100 z-20"
         aria-label="Previous slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
         </svg>
       </button>
@@ -127,12 +164,12 @@ export default function HeroSlider({ items }: HeroSliderProps) {
         onClick={(e) => {
           e.preventDefault()
           e.stopPropagation()
-          goToNext()
+          handleManualControl(goToNext)
         }}
-        className="absolute right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 rounded-full backdrop-blur-sm transition z-20"
+        className="absolute right-2 md:right-4 top-1/2 -translate-y-1/2 bg-white/20 hover:bg-white/40 text-white p-2 md:p-3 rounded-full backdrop-blur-sm transition-all duration-200 md:opacity-0 md:group-hover:opacity-100 z-20"
         aria-label="Next slide"
       >
-        <svg className="w-6 h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+        <svg className="w-5 h-5 md:w-6 md:h-6" fill="none" stroke="currentColor" viewBox="0 0 24 24">
           <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M9 5l7 7-7 7" />
         </svg>
       </button>
@@ -145,10 +182,10 @@ export default function HeroSlider({ items }: HeroSliderProps) {
             onClick={(e) => {
               e.preventDefault()
               e.stopPropagation()
-              goToSlide(index)
+              handleManualControl(() => goToSlide(index))
             }}
-            className={`w-3 h-3 rounded-full transition ${
-              index === currentIndex ? 'bg-white' : 'bg-white/50'
+            className={`w-3 h-3 rounded-full transition-all duration-300 ${
+              index === currentIndex ? 'bg-white w-8' : 'bg-white/50 hover:bg-white/75'
             }`}
             aria-label={`Go to slide ${index + 1}`}
           />
