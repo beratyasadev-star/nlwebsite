@@ -12,15 +12,6 @@ export default buildConfig({
       titleSuffix: '- NL Onderwijs',
     },
   },
-  localization: {
-    locales: [
-      { label: 'Türkçe', code: 'tr' },
-      { label: 'Kurdî (Kurmancî)', code: 'ku' },
-      { label: 'العربية', code: 'ar' },
-    ],
-    defaultLocale: 'tr',
-    fallback: true,
-  },
   editor: slateEditor({}),
   collections: [
     {
@@ -86,7 +77,6 @@ export default buildConfig({
           type: 'text',
           required: true,
           label: 'Başlık',
-          localized: true,
         },
         {
           name: 'slug',
@@ -151,7 +141,6 @@ export default buildConfig({
           name: 'excerpt',
           type: 'textarea',
           label: 'Kısa Özet',
-          localized: true,
         },
         {
           name: 'featuredImage',
@@ -165,7 +154,6 @@ export default buildConfig({
           type: 'richText',
           required: true,
           label: 'İçerik',
-          localized: true,
         },
         {
           name: 'category',
@@ -198,21 +186,6 @@ export default buildConfig({
             { label: 'Taslak', value: 'draft' },
             { label: 'Yayında', value: 'published' },
           ],
-        },
-        {
-          name: 'translationStatus',
-          type: 'select',
-          localized: true,
-          admin: {
-            position: 'sidebar',
-            description: 'Çeviri durumu',
-          },
-          options: [
-            { label: 'Orijinal', value: 'original' },
-            { label: 'Otomatik Çeviri', value: 'auto' },
-            { label: 'Gözden Geçirildi', value: 'reviewed' },
-          ],
-          defaultValue: 'original',
         },
       ],
       timestamps: true,
@@ -278,7 +251,6 @@ export default buildConfig({
           type: 'text',
           required: true,
           label: 'Başlık',
-          localized: true,
         },
         {
           name: 'slug',
@@ -349,7 +321,6 @@ export default buildConfig({
           name: 'excerpt',
           type: 'textarea',
           label: 'Kısa Özet',
-          localized: true,
         },
         {
           name: 'featuredImage',
@@ -363,7 +334,6 @@ export default buildConfig({
           type: 'richText',
           required: true,
           label: 'İçerik',
-          localized: true,
         },
         {
           name: 'publishedDate',
@@ -381,21 +351,6 @@ export default buildConfig({
             { label: 'Taslak', value: 'draft' },
             { label: 'Yayında', value: 'published' },
           ],
-        },
-        {
-          name: 'translationStatus',
-          type: 'select',
-          localized: true,
-          admin: {
-            position: 'sidebar',
-            description: 'Çeviri durumu',
-          },
-          options: [
-            { label: 'Orijinal', value: 'original' },
-            { label: 'Otomatik Çeviri', value: 'auto' },
-            { label: 'Gözden Geçirildi', value: 'reviewed' },
-          ],
-          defaultValue: 'original',
         },
       ],
       timestamps: true,
@@ -461,7 +416,6 @@ export default buildConfig({
           type: 'text',
           required: true,
           label: 'Başlık',
-          localized: true,
         },
         {
           name: 'slug',
@@ -526,7 +480,6 @@ export default buildConfig({
           name: 'excerpt',
           type: 'textarea',
           label: 'Kısa Özet',
-          localized: true,
         },
         {
           name: 'featuredImage',
@@ -540,7 +493,6 @@ export default buildConfig({
           type: 'richText',
           required: true,
           label: 'İçerik',
-          localized: true,
         },
         {
           name: 'urgent',
@@ -567,21 +519,6 @@ export default buildConfig({
             { label: 'Taslak', value: 'draft' },
             { label: 'Yayında', value: 'published' },
           ],
-        },
-        {
-          name: 'translationStatus',
-          type: 'select',
-          localized: true,
-          admin: {
-            position: 'sidebar',
-            description: 'Çeviri durumu',
-          },
-          options: [
-            { label: 'Orijinal', value: 'original' },
-            { label: 'Otomatik Çeviri', value: 'auto' },
-            { label: 'Gözden Geçirildi', value: 'reviewed' },
-          ],
-          defaultValue: 'original',
         },
       ],
       timestamps: true,
@@ -647,14 +584,12 @@ export default buildConfig({
           type: 'text',
           required: true,
           label: 'Soru',
-          localized: true,
         },
         {
           name: 'answer',
           type: 'richText',
           required: true,
           label: 'Cevap',
-          localized: true,
         },
         {
           name: 'category',
@@ -676,21 +611,6 @@ export default buildConfig({
           admin: {
             description: 'Soruların görüntülenme sırası. Boş bırakılabilir, 0 varsayılan değerdir.',
           },
-        },
-        {
-          name: 'translationStatus',
-          type: 'select',
-          localized: true,
-          admin: {
-            position: 'sidebar',
-            description: 'Çeviri durumu',
-          },
-          options: [
-            { label: 'Orijinal', value: 'original' },
-            { label: 'Otomatik Çeviri', value: 'auto' },
-            { label: 'Gözden Geçirildi', value: 'reviewed' },
-          ],
-          defaultValue: 'original',
         },
       ],
       timestamps: true,
