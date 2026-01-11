@@ -16,9 +16,10 @@ interface SliderItem {
 
 interface HeroSliderProps {
   items: SliderItem[]
+  locale: string
 }
 
-export default function HeroSlider({ items }: HeroSliderProps) {
+export default function HeroSlider({ items, locale }: HeroSliderProps) {
   const [currentIndex, setCurrentIndex] = useState(0)
   const [isAutoPlayActive, setIsAutoPlayActive] = useState(true)
   const [isPaused, setIsPaused] = useState(false)
@@ -114,7 +115,7 @@ export default function HeroSlider({ items }: HeroSliderProps) {
       onMouseLeave={() => setIsPaused(false)}
     >
       <Link
-        href={`/haberler/${currentItem.slug}`}
+        href={`/${locale}/haberler/${currentItem.slug}`}
         className={`absolute inset-0 cursor-pointer transition-opacity duration-300 ${
           isTransitioning ? 'opacity-0' : 'opacity-100'
         }`}

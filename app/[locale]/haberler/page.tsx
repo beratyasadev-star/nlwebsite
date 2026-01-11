@@ -1,54 +1,65 @@
 import NewsCard from '@/src/components/NewsCard'
 import { getNews } from '@/src/lib/payload'
-import { CATEGORIES } from '@/src/lib/utils'
+import { getDictionary } from '@/src/dictionaries'
+import { Locale } from '@/src/lib/i18n'
 
-export const revalidate = 120 // ISR: 120 saniye
+export const revalidate = 120
 
-export default async function HaberlerPage({
-  searchParams: searchParamsPromise,
-}: {
+interface PageProps {
+  params: Promise<{ locale: string }>
   searchParams: Promise<{ category?: string }>
-}) {
-  const searchParams = await searchParamsPromise
-  const allNews = await getNews(100)
-  
-  // Kategori filtreleme
-  const filteredNews = searchParams.category
-    ? allNews.filter((news: any) => news.category === searchParams.category)
+}
+
+export default async function HaberlerPage({ params, searchParams }: PageProps) {
+  const { locale } = await params
+  const { category } = await searchParams
+  const dict = await getDictionary(locale as Locale)
+
+  const allNews = await getNews(100, locale)
+
+  const filteredNews = category
+    ? allNews.filter((news: any) => news.category === category)
     : allNews
-  
+
+  const categories = [
+    { key: 'asylum', label: dict.categories.asylum },
+    { key: 'health', label: dict.categories.health },
+    { key: 'education', label: dict.categories.education },
+    { key: 'work', label: dict.categories.work },
+  ]
+
   return (
     <div className="min-h-screen bg-gray-50 py-12">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
-        <h1 className="text-4xl font-bold text-gray-900 mb-8">Bilgi Bankası</h1>
-        
+        <h1 className="text-4xl font-bold text-gray-900 mb-8">{dict.nav.news}</h1>
+
         {/* Kategori Filtreleri */}
         <div className="flex flex-wrap gap-3 mb-8">
           <a
-            href="/haberler"
+            href={`/${locale}/haberler`}
             className={`px-4 py-2 rounded-full transition ${
-              !searchParams.category
+              !category
                 ? 'bg-sky-600 text-white'
                 : 'bg-white text-gray-700 hover:bg-gray-100'
             }`}
           >
-            Tümü
+            {dict.faq.allCategories}
           </a>
-          {Object.entries(CATEGORIES).map(([key, label]) => (
+          {categories.map((cat) => (
             <a
-              key={key}
-              href={`/haberler?category=${key}`}
+              key={cat.key}
+              href={`/${locale}/haberler?category=${cat.key}`}
               className={`px-4 py-2 rounded-full transition ${
-                searchParams.category === key
+                category === cat.key
                   ? 'bg-sky-600 text-white'
                   : 'bg-white text-gray-700 hover:bg-gray-100'
               }`}
             >
-              {label}
+              {cat.label}
             </a>
           ))}
         </div>
-        
+
         {/* Haberler Grid */}
         {filteredNews.length > 0 ? (
           <div className="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
@@ -61,12 +72,15 @@ export default async function HaberlerPage({
                 category={news.category}
                 publishedDate={news.publishedDate}
                 featuredImage={news.featuredImage}
+                locale={locale}
+                categoryLabels={dict.categories}
+                readMore={dict.common.readMore}
               />
             ))}
           </div>
         ) : (
           <div className="text-center py-12">
-            <p className="text-gray-500 text-lg">Bu kategoride henüz haber bulunmuyor.</p>
+            <p className="text-gray-500 text-lg">{dict.faq.noResults}</p>
           </div>
         )}
       </div>

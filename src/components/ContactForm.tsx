@@ -2,7 +2,27 @@
 
 import { useState } from 'react'
 
-export default function ContactForm() {
+interface ContactFormDict {
+  form: {
+    name: string
+    email: string
+    phone: string
+    phoneOptional: string
+    subject: string
+    message: string
+    send: string
+    sending: string
+    success: string
+    error: string
+    emailError: string
+  }
+}
+
+interface ContactFormProps {
+  dict: ContactFormDict
+}
+
+export default function ContactForm({ dict }: ContactFormProps) {
   const [formData, setFormData] = useState({
     name: '',
     email: '',
@@ -29,23 +49,21 @@ export default function ContactForm() {
       const data = await response.json()
 
       if (!response.ok) {
-        console.error('Sunucu hatası:', data)
-        // Payload validation hatası için özel mesaj
+        console.error('Server error:', data)
         if (data.error && data.error.includes('email')) {
-          throw new Error('Lütfen geçerli bir e-posta adresi girin (örn: isim@example.com)')
+          throw new Error(dict.form.emailError)
         }
-        throw new Error(data.error || 'Form gönderilemedi')
+        throw new Error(data.error || dict.form.error)
       }
 
-      console.log('Başarılı:', data)
       setStatus('success')
       setFormData({ name: '', email: '', phone: '', subject: '', message: '' })
-      
+
       setTimeout(() => setStatus('idle'), 3000)
     } catch (error) {
-      console.error('Form hatası:', error)
+      console.error('Form error:', error)
       setStatus('error')
-      setErrorMessage(error instanceof Error ? error.message : 'Bir hata oluştu. Lütfen tekrar deneyin.')
+      setErrorMessage(error instanceof Error ? error.message : dict.form.error)
       setTimeout(() => setStatus('idle'), 5000)
     }
   }
@@ -61,7 +79,7 @@ export default function ContactForm() {
     <form onSubmit={handleSubmit} className="space-y-6">
       <div>
         <label htmlFor="name" className="block text-sm font-medium text-gray-700 mb-2">
-          Adınız Soyadınız *
+          {dict.form.name} *
         </label>
         <input
           type="text"
@@ -76,7 +94,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="email" className="block text-sm font-medium text-gray-700 mb-2">
-          E-posta Adresiniz *
+          {dict.form.email} *
         </label>
         <input
           type="email"
@@ -86,15 +104,15 @@ export default function ContactForm() {
           value={formData.email}
           onChange={handleChange}
           pattern="[a-z0-9._%+-]+@[a-z0-9.-]+\.[a-z]{2,}$"
-          title="Geçerli bir e-posta adresi girin (örn: isim@example.com)"
-          placeholder="ornek@email.com"
+          title={dict.form.emailError}
+          placeholder="example@email.com"
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-transparent"
         />
       </div>
 
       <div>
         <label htmlFor="phone" className="block text-sm font-medium text-gray-700 mb-2">
-          Telefon Numaranız
+          {dict.form.phone}
         </label>
         <input
           type="tel"
@@ -102,14 +120,14 @@ export default function ContactForm() {
           name="phone"
           value={formData.phone}
           onChange={handleChange}
-          placeholder="Opsiyonel"
+          placeholder={dict.form.phoneOptional}
           className="w-full px-4 py-3 rounded-lg border border-gray-300 focus:ring-2 focus:ring-sky-500 focus:border-transparent"
         />
       </div>
 
       <div>
         <label htmlFor="subject" className="block text-sm font-medium text-gray-700 mb-2">
-          Konu *
+          {dict.form.subject} *
         </label>
         <input
           type="text"
@@ -124,7 +142,7 @@ export default function ContactForm() {
 
       <div>
         <label htmlFor="message" className="block text-sm font-medium text-gray-700 mb-2">
-          Mesajınız *
+          {dict.form.message} *
         </label>
         <textarea
           id="message"
@@ -142,12 +160,12 @@ export default function ContactForm() {
         disabled={status === 'sending'}
         className="w-full bg-sky-600 text-white font-semibold px-6 py-3 rounded-lg hover:bg-sky-700 transition disabled:opacity-50 disabled:cursor-not-allowed"
       >
-        {status === 'sending' ? 'Gönderiliyor...' : 'Gönder'}
+        {status === 'sending' ? dict.form.sending : dict.form.send}
       </button>
 
       {status === 'success' && (
         <div className="bg-green-50 border border-green-200 text-green-800 px-4 py-3 rounded-lg">
-          Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.
+          {dict.form.success}
         </div>
       )}
 

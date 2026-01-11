@@ -1,28 +1,37 @@
 import ContactForm from '@/src/components/ContactForm'
+import { getDictionary } from '@/src/dictionaries'
+import { Locale } from '@/src/lib/i18n'
 
-export default function IletisimPage() {
+interface PageProps {
+  params: Promise<{ locale: string }>
+}
+
+export default async function IletisimPage({ params }: PageProps) {
+  const { locale } = await params
+  const dict = await getDictionary(locale as Locale)
+
   return (
     <div className="min-h-screen relative">
       <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 py-16 relative z-10">
         <div className="mb-16 text-center">
-          <h1 className="text-5xl font-bold text-gray-900 mb-4">İletişim</h1>
+          <h1 className="text-5xl font-bold text-gray-900 mb-4">{dict.contact.title}</h1>
           <p className="text-xl text-gray-600">
-            İletişime geçmek için lütfen formu doldurun
+            {dict.contact.subtitle}
           </p>
         </div>
 
         <div className="grid grid-cols-1 lg:grid-cols-2 gap-12">
           {/* Contact Form */}
           <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] p-10 border border-sky-100/50">
-            <h2 className="text-2xl font-bold text-gray-900 mb-6">Mesaj Gönderin</h2>
-            <ContactForm />
+            <h2 className="text-2xl font-bold text-gray-900 mb-6">{dict.contact.sendMessage}</h2>
+            <ContactForm dict={dict.contact} />
           </div>
 
           {/* Contact Info */}
           <div className="space-y-8">
             <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] p-10 border border-sky-100/50">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">İletişim Bilgileri</h2>
-              
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">{dict.contact.contactInfo}</h2>
+
               <div className="space-y-6">
                 <div className="flex items-start">
                   <div className="flex-shrink-0">
@@ -31,9 +40,9 @@ export default function IletisimPage() {
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 11a3 3 0 11-6 0 3 3 0 016 0z" />
                     </svg>
                   </div>
-                  <div className="ml-4">
-                    <h3 className="text-lg font-semibold text-gray-900">Adres</h3>
-                    <p className="text-gray-600">Hollanda</p>
+                  <div className="ms-4">
+                    <h3 className="text-lg font-semibold text-gray-900">{dict.contact.address}</h3>
+                    <p className="text-gray-600">{dict.contact.addressValue}</p>
                   </div>
                 </div>
               </div>
@@ -41,8 +50,8 @@ export default function IletisimPage() {
 
             {/* Social Media */}
             <div className="bg-white/90 backdrop-blur-sm rounded-3xl shadow-[0_8px_30px_rgba(14,165,233,0.12)] p-10 border border-sky-100/50">
-              <h2 className="text-2xl font-bold text-gray-900 mb-8">Sosyal Medya</h2>
-              <div className="flex space-x-4">
+              <h2 className="text-2xl font-bold text-gray-900 mb-8">{dict.contact.socialMedia}</h2>
+              <div className="flex space-x-4 rtl:space-x-reverse">
                 <a
                   href="https://facebook.com"
                   target="_blank"
@@ -81,27 +90,27 @@ export default function IletisimPage() {
 
             {/* Quick Links */}
             <div className="bg-gradient-to-br from-sky-50 to-blue-50 rounded-3xl p-10 border border-sky-100/50 shadow-sm">
-              <h2 className="text-2xl font-bold text-gray-900 mb-6">Faydalı Linkler</h2>
+              <h2 className="text-2xl font-bold text-gray-900 mb-6">{dict.contact.usefulLinks}</h2>
               <ul className="space-y-2">
                 <li>
                   <a href="https://ind.nl" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-700 flex items-center">
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
-                    IND (İkamet İzinleri)
+                    IND ({dict.contact.residencePermits})
                   </a>
                 </li>
                 <li>
                   <a href="https://coa.nl" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-700 flex items-center">
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
-                    COA (Barınma)
+                    COA ({dict.contact.housing})
                   </a>
                 </li>
                 <li>
                   <a href="https://digid.nl" target="_blank" rel="noopener noreferrer" className="text-sky-600 hover:text-sky-700 flex items-center">
-                    <svg className="w-4 h-4 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                    <svg className="w-4 h-4 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                       <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M10 6H6a2 2 0 00-2 2v10a2 2 0 002 2h10a2 2 0 002-2v-4M14 4h6m0 0v6m0-6L10 14" />
                     </svg>
                     DigiD

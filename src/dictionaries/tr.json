@@ -1,0 +1,125 @@
+{
+  "metadata": {
+    "title": "NL Onderwijs - Mülteci Destek Platformu",
+    "description": "Hollanda'da yaşayan mülteciler için bilgi platformu. IND, COA, DigiD, BSN, sağlık sigortası ve daha fazlası."
+  },
+  "nav": {
+    "home": "Ana Sayfa",
+    "news": "Bilgi Bankası",
+    "blog": "Blog",
+    "announcements": "Duyurular",
+    "faq": "Sık Sorulan Sorular",
+    "about": "Hakkımızda",
+    "contact": "İletişim",
+    "pages": "Sayfalar",
+    "quickAccess": "Hızlı Erişim"
+  },
+  "categories": {
+    "asylum": "İltica ve Resmi İşlemler",
+    "health": "Sağlık",
+    "education": "Eğitim",
+    "work": "İş & Çalışma",
+    "all": "Tüm Gönderiler"
+  },
+  "home": {
+    "quickAccess": "Hızlı Erişim",
+    "latestNews": "Son Eklenenler",
+    "viewAll": "Tümünü Gör",
+    "contactUs": "Bize Ulaşın",
+    "contactDescription": "Soru, görüş ve önerileriniz için",
+    "contactForm": "İletişim Formu",
+    "blogDescription": "Köşe yazıları, değerlendirmeler, röportajlar",
+    "announcementsDescription": "Hollanda'daki mülteciler için önemli duyuru ve bildirimler"
+  },
+  "whatsapp": {
+    "title": "WhatsApp Grubumuza Katılın",
+    "description": "Hollanda'da yaşayan Kürdistanlı ve Türkiyeli mültecilerin dayanışma topluluğu",
+    "joinButton": "Katılım Talebinde Bulun",
+    "nameLabel": "Adınız Soyadınız",
+    "phoneLabel": "Telefon Numaranız",
+    "phoneHint": "WhatsApp davetinin gönderileceği numara",
+    "emailLabel": "E-posta Adresiniz",
+    "emailPlaceholder": "ornek@email.com (opsiyonel)",
+    "backButton": "Geri",
+    "sendButton": "Gönder",
+    "sending": "Gönderiliyor...",
+    "successTitle": "Talebiniz alındı!",
+    "successMessage": "En kısa sürede WhatsApp davet linkiniz telefon numaranıza gönderilecektir.",
+    "errorMessage": "Bir hata oluştu. Lütfen tekrar deneyin.",
+    "moderationNote": "Talebiniz moderasyon sonrası onaylanacaktır. Spam-free güvenli ortam."
+  },
+  "contact": {
+    "title": "İletişim",
+    "subtitle": "İletişime geçmek için lütfen formu doldurun",
+    "sendMessage": "Mesaj Gönderin",
+    "contactInfo": "İletişim Bilgileri",
+    "address": "Adres",
+    "addressValue": "Hollanda",
+    "socialMedia": "Sosyal Medya",
+    "usefulLinks": "Faydalı Linkler",
+    "residencePermits": "İkamet İzinleri",
+    "housing": "Barınma",
+    "form": {
+      "name": "Adınız Soyadınız",
+      "email": "E-posta Adresiniz",
+      "phone": "Telefon Numaranız",
+      "phoneOptional": "Opsiyonel",
+      "subject": "Konu",
+      "message": "Mesajınız",
+      "send": "Gönder",
+      "sending": "Gönderiliyor...",
+      "success": "Mesajınız başarıyla gönderildi. En kısa sürede size dönüş yapacağız.",
+      "error": "Bir hata oluştu. Lütfen tekrar deneyin.",
+      "emailError": "Lütfen geçerli bir e-posta adresi girin (örn: isim@example.com)"
+    }
+  },
+  "about": {
+    "title": "Hakkımızda",
+    "description": "Hollanda'ya iyi bir başlangıç için birbirlerini bilgilendirmek, tavsiyelerde bulunmak ve desteklemek amacıyla bir grup mülteci Kürt aktivistin kurduğu girişimdir.",
+    "foundation": "Ağırlıklı olarak Türkiye ve Kürdistan halklarından oluşan özgürleştirici, dayanışmacı ve tabandan gelen bir oluşumdur.",
+    "purposeTitle": "Amacımız",
+    "purpose": "Girişimimiz, Hollanda'da yeni gelen göçmenlerin ve ilticaya başvurmuş insanların, Hollanda'daki günlük yaşama uyum sağlamalarına yardımcı olmak, bilgi ve becerilerini topluma kazandırmayı amaçlamaktadır.",
+    "missionTitle": "Misyonumuz",
+    "mission": "İlticacıların ve göçmenlerin isteklerini, hedeflerini, engelleri ve imkânları değerlendirmek ve şartları göze alarak onlara yardım sağlamak misyonunda olan NL Onderwijs, farklı sivil toplum kuruluşlarıyla iş birliği içerisinde etkinlikler yapmaktadır.",
+    "offerTitle": "Ne Sunuyoruz?",
+    "offers": [
+      "İltica ve resmi işlemler hakkında güncel bilgiler",
+      "Eğitim ve kariyer geliştirme desteği",
+      "Entegrasyon sürecinde rehberlik",
+      "Aktif topluluk ve deneyim paylaşımı",
+      "Sivil toplum kuruluşlarıyla işbirliği ve etkinlikler"
+    ]
+  },
+  "faq": {
+    "title": "Sık Sorulan Sorular",
+    "subtitle": "Sık sorulan sorular ve cevapları",
+    "allCategories": "Tüm Kategoriler",
+    "noResults": "Bu kategoride henüz soru bulunmamaktadır.",
+    "searchPlaceholder": "Soru ara...",
+    "notFound": "Aradığınızı bulamadınız mı?",
+    "notFoundDescription": "Sorunuzu bize iletebilir veya WhatsApp grubumuzda diğer üyelerle paylaşabilirsiniz.",
+    "contactUs": "Bize Ulaşın",
+    "joinWhatsApp": "WhatsApp Grubuna Katıl"
+  },
+  "footer": {
+    "description": "Hollanda'da yaşayan mülteciler için bilgi platformu",
+    "quickAccess": "Hızlı Erişim",
+    "usefulLinks": "Faydalı Linkler",
+    "contact": "İletişim",
+    "contactText": "Lütfen iletişim formunu doldurun",
+    "copyright": "Tüm hakları saklıdır."
+  },
+  "common": {
+    "readMore": "Devamını Oku",
+    "loading": "Yükleniyor...",
+    "error": "Bir hata oluştu",
+    "required": "Zorunlu alan",
+    "backToList": "Listeye Dön",
+    "featured": "Öne Çıkan",
+    "columnist": "Köşe Yazarı",
+    "urgentAnnouncements": "Acil Duyurular",
+    "generalAnnouncements": "Genel Duyurular",
+    "urgent": "Acil",
+    "urgentAnnouncement": "Acil Duyuru"
+  }
+}

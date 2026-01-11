@@ -1,6 +1,8 @@
-import { getNewsBySlug, getNews } from '@/src/lib/payload'
-import { formatDate, getCategoryName } from '@/src/lib/utils'
+import { getNewsBySlug } from '@/src/lib/payload'
+import { formatDate } from '@/src/lib/utils'
 import { renderRichText } from '@/src/lib/richtext'
+import { getDictionary } from '@/src/dictionaries'
+import { Locale } from '@/src/lib/i18n'
 import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
@@ -8,55 +10,59 @@ import { notFound } from 'next/navigation'
 export const revalidate = 60
 export const dynamicParams = true
 
-// Build time'da fetch skip edildi - runtime'da dynamic olarak render edilecek
 export async function generateStaticParams() {
-  return [] // Empty array - all pages will be generated on-demand
+  return []
 }
 
-export default async function NewsDetailPage({
-  params,
-}: {
-  params: Promise<{ slug: string }>
-}) {
-  const { slug } = await params
-  const news = await getNewsBySlug(slug)
-  
+interface PageProps {
+  params: Promise<{ locale: string; slug: string }>
+}
+
+export default async function NewsDetailPage({ params }: PageProps) {
+  const { locale, slug } = await params
+  const dict = await getDictionary(locale as Locale)
+  const news = await getNewsBySlug(slug, locale)
+
   if (!news) {
     notFound()
   }
-  
+
+  const getCategoryLabel = (cat: string) => {
+    return dict.categories[cat as keyof typeof dict.categories] || cat
+  }
+
   return (
     <div className="min-h-screen bg-white">
       <article className="max-w-4xl mx-auto px-4 sm:px-6 lg:px-8 py-12">
         {/* Breadcrumb */}
         <nav className="flex items-center gap-2 text-sm text-gray-500 mb-8">
-          <Link href="/" className="hover:text-sky-600">Ana Sayfa</Link>
+          <Link href={`/${locale}`} className="hover:text-sky-600">{dict.nav.home}</Link>
           <span>/</span>
-          <Link href="/haberler" className="hover:text-sky-600">Haberler</Link>
+          <Link href={`/${locale}/haberler`} className="hover:text-sky-600">{dict.nav.news}</Link>
           <span>/</span>
-          <span className="text-gray-900">{news.title}</span>
+          <span className="text-gray-900 line-clamp-1">{news.title}</span>
         </nav>
-        
+
         {/* Category & Date */}
         <div className="flex items-center gap-4 mb-6">
           <span className="text-sm font-medium text-sky-600 bg-sky-50 px-4 py-2 rounded-full">
-            {getCategoryName(news.category)}
+            {getCategoryLabel(news.category)}
           </span>
           <span className="text-sm text-gray-500">
-            {formatDate(news.publishedDate)}
+            {formatDate(news.publishedDate, locale)}
           </span>
         </div>
-        
+
         {/* Title */}
         <h1 className="text-4xl md:text-5xl font-bold text-gray-900 mb-6">
           {news.title}
         </h1>
-        
+
         {/* Excerpt */}
         <p className="text-xl text-gray-600 mb-8 leading-relaxed">
           {news.excerpt}
         </p>
-        
+
         {/* Featured Image */}
         {news.featuredImage?.url && (
           <div className="relative h-96 w-full rounded-xl overflow-hidden mb-12">
@@ -70,24 +76,24 @@ export default async function NewsDetailPage({
             />
           </div>
         )}
-        
+
         {/* Content */}
         <div className="prose prose-lg max-w-none">
           {renderRichText(news.content)}
         </div>
-        
+
         {/* Share & Back */}
         <div className="mt-12 pt-8 border-t border-gray-200 flex justify-between items-center">
-          <Link 
-            href="/haberler" 
+          <Link
+            href={`/${locale}/haberler`}
             className="text-sky-600 hover:text-sky-700 font-medium flex items-center"
           >
-            <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+            <svg className="w-5 h-5 me-2 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
               <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
             </svg>
-            Tüm Haberlere Dön
+            {dict.common.backToList}
           </Link>
-          
+
           <div className="flex gap-3">
             <button className="p-2 rounded-full bg-gray-100 hover:bg-gray-200 transition">
               <svg className="w-5 h-5 text-gray-600" fill="currentColor" viewBox="0 0 24 24">

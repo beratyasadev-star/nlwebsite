@@ -2,7 +2,29 @@
 
 import { useState } from 'react'
 
-export default function WhatsAppJoinForm() {
+interface WhatsAppDict {
+  title: string
+  description: string
+  joinButton: string
+  nameLabel: string
+  phoneLabel: string
+  phoneHint: string
+  emailLabel: string
+  emailPlaceholder: string
+  backButton: string
+  sendButton: string
+  sending: string
+  successTitle: string
+  successMessage: string
+  errorMessage: string
+  moderationNote: string
+}
+
+interface WhatsAppJoinFormProps {
+  dict: WhatsAppDict
+}
+
+export default function WhatsAppJoinForm({ dict }: WhatsAppJoinFormProps) {
   const [isExpanded, setIsExpanded] = useState(false)
   const [formData, setFormData] = useState({
     name: '',
@@ -57,8 +79,8 @@ export default function WhatsAppJoinForm() {
           </svg>
         </div>
         <div className="flex-1">
-          <h3 className="text-xl font-bold text-gray-900">WhatsApp Grubumuza Katılın</h3>
-          <p className="text-green-700 text-sm">Hollanda'da yaşayan Kürdistanlı ve Türkiyeli mültecilerin dayanışma topluluğu</p>
+          <h3 className="text-xl font-bold text-gray-900">{dict.title}</h3>
+          <p className="text-green-700 text-sm">{dict.description}</p>
         </div>
       </div>
 
@@ -70,14 +92,14 @@ export default function WhatsAppJoinForm() {
           <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M18 9v3m0 0v3m0-3h3m-3 0h-3m-2-5a4 4 0 11-8 0 4 4 0 018 0zM3 20a6 6 0 0112 0v1H3v-1z" />
           </svg>
-          Katılım Talebinde Bulun
+          {dict.joinButton}
         </button>
       ) : (
         <>
           <form onSubmit={handleSubmit} className="space-y-4">
         <div>
           <label htmlFor="wa-name" className="block text-sm font-medium text-gray-700 mb-1">
-            Adınız Soyadınız *
+            {dict.nameLabel} *
           </label>
           <input
             type="text"
@@ -87,13 +109,13 @@ export default function WhatsAppJoinForm() {
             value={formData.name}
             onChange={handleChange}
             className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="Adınız ve soyadınız"
+            placeholder={dict.nameLabel}
           />
         </div>
 
         <div>
           <label htmlFor="wa-phone" className="block text-sm font-medium text-gray-700 mb-1">
-            Telefon Numaranız *
+            {dict.phoneLabel} *
           </label>
           <input
             type="tel"
@@ -105,12 +127,12 @@ export default function WhatsAppJoinForm() {
             className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
             placeholder="+31 6 12345678"
           />
-          <p className="text-xs text-gray-500 mt-1">WhatsApp davetinin gönderileceği numara</p>
+          <p className="text-xs text-gray-500 mt-1">{dict.phoneHint}</p>
         </div>
 
         <div>
           <label htmlFor="wa-email" className="block text-sm font-medium text-gray-700 mb-1">
-            E-posta Adresiniz
+            {dict.emailLabel}
           </label>
           <input
             type="email"
@@ -119,7 +141,7 @@ export default function WhatsAppJoinForm() {
             value={formData.email}
             onChange={handleChange}
             className="w-full px-4 py-2.5 rounded-lg border border-gray-300 focus:ring-2 focus:ring-green-500 focus:border-transparent"
-            placeholder="ornek@email.com (opsiyonel)"
+            placeholder={dict.emailPlaceholder}
           />
         </div>
 
@@ -129,7 +151,7 @@ export default function WhatsAppJoinForm() {
             onClick={() => setIsExpanded(false)}
             className="px-4 py-3 rounded-lg border border-gray-300 text-gray-700 font-medium hover:bg-gray-50 transition"
           >
-            Geri
+            {dict.backButton}
           </button>
           <button
             type="submit"
@@ -142,14 +164,14 @@ export default function WhatsAppJoinForm() {
                   <circle className="opacity-25" cx="12" cy="12" r="10" stroke="currentColor" strokeWidth="4" fill="none"></circle>
                   <path className="opacity-75" fill="currentColor" d="M4 12a8 8 0 018-8V0C5.373 0 0 5.373 0 12h4zm2 5.291A7.962 7.962 0 014 12H0c0 3.042 1.135 5.824 3 7.938l3-2.647z"></path>
                 </svg>
-                Gönderiliyor...
+                {dict.sending}
               </>
             ) : (
               <>
                 <svg className="w-5 h-5" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M12 19l9 2-9-18-9 18 9-2zm0 0v-8" />
                 </svg>
-                Gönder
+                {dict.sendButton}
               </>
             )}
           </button>
@@ -162,8 +184,8 @@ export default function WhatsAppJoinForm() {
                 <path fillRule="evenodd" d="M10 18a8 8 0 100-16 8 8 0 000 16zm3.707-9.293a1 1 0 00-1.414-1.414L9 10.586 7.707 9.293a1 1 0 00-1.414 1.414l2 2a1 1 0 001.414 0l4-4z" clipRule="evenodd" />
               </svg>
               <div>
-                <p className="font-semibold">Talebiniz alındı!</p>
-                <p className="text-sm">En kısa sürede WhatsApp davet linkiniz telefon numaranıza gönderilecektir.</p>
+                <p className="font-semibold">{dict.successTitle}</p>
+                <p className="text-sm">{dict.successMessage}</p>
               </div>
             </div>
           </div>
@@ -171,7 +193,7 @@ export default function WhatsAppJoinForm() {
 
         {status === 'error' && (
           <div className="bg-red-50 border border-red-200 text-red-800 px-4 py-3 rounded-lg">
-            Bir hata oluştu. Lütfen tekrar deneyin.
+            {dict.errorMessage}
           </div>
         )}
       </form>
@@ -182,7 +204,7 @@ export default function WhatsAppJoinForm() {
             <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M13 16h-1v-4h-1m1-4h.01M21 12a9 9 0 11-18 0 9 9 0 0118 0z" />
           </svg>
           <p>
-            Talebiniz moderasyon sonrası onaylanacaktır. Spam-free güvenli ortam.
+            {dict.moderationNote}
           </p>
         </div>
       </div>

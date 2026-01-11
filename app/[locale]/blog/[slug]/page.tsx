@@ -2,49 +2,26 @@ import Image from 'next/image'
 import Link from 'next/link'
 import { notFound } from 'next/navigation'
 import { serializeRichText } from '@/src/lib/richtext'
+import { getDictionary } from '@/src/dictionaries'
+import { Locale } from '@/src/lib/i18n'
+import { getBlogBySlug } from '@/src/lib/payload'
+import { formatDate } from '@/src/lib/utils'
 
 export const revalidate = 3600
-export const dynamicParams = true // Allow dynamic params not in generateStaticParams
+export const dynamicParams = true
 
-interface Article {
-  id: string
-  title: string
-  slug: string
-  author: string
-  publishedDate: string
-  featuredImage: {
-    url: string
-    alt?: string
-  }
-  content: any
+export async function generateStaticParams() {
+  return []
 }
 
-async function getArticle(slug: string): Promise<Article | null> {
-  const res = await fetch(
-    `${process.env.NEXT_PUBLIC_SERVER_URL || 'http://localhost:3001'}/api/blog?where[slug][equals]=${slug}&where[status][equals]=published`,
-    { next: { revalidate: 3600 } }
-  )
-  
-  if (!res.ok) {
-    return null
-  }
-  
-  const data = await res.json()
-  return data.docs?.[0] || null
+interface PageProps {
+  params: Promise<{ locale: string; slug: string }>
 }
 
-function formatDate(dateString: string) {
-  const date = new Date(dateString)
-  return new Intl.DateTimeFormat('tr-TR', {
-    year: 'numeric',
-    month: 'long',
-    day: 'numeric'
-  }).format(date)
-}
-
-export default async function ArticleDetail({ params }: { params: Promise<{ slug: string }> }) {
-  const { slug } = await params
-  const article = await getArticle(slug)
+export default async function ArticleDetail({ params }: PageProps) {
+  const { locale, slug } = await params
+  const dict = await getDictionary(locale as Locale)
+  const article = await getBlogBySlug(slug, locale)
 
   if (!article) {
     notFound()
@@ -63,35 +40,42 @@ export default async function ArticleDetail({ params }: { params: Promise<{ slug
               priority
             />
           </div>
-          
+
           <div className="p-8">
             <div className="mb-6">
               <div className="flex items-center text-sm text-gray-500 mb-4">
-                <svg className="w-5 h-5 mr-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 me-2 text-sky-600" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M16 7a4 4 0 11-8 0 4 4 0 018 0zM12 14a7 7 0 00-7 7h14a7 7 0 00-7-7z" />
                 </svg>
                 <span className="font-semibold text-sky-600">{article.author}</span>
                 <span className="mx-3">•</span>
-                <svg className="w-5 h-5 mr-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                <svg className="w-5 h-5 me-2" fill="none" stroke="currentColor" viewBox="0 0 24 24">
                   <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M8 7V3m8 4V3m-9 8h10M5 21h14a2 2 0 002-2V7a2 2 0 00-2-2H5a2 2 0 00-2 2v12a2 2 0 002 2z" />
                 </svg>
-                <span>{formatDate(article.publishedDate)}</span>
+                <span>{formatDate(article.publishedDate, locale)}</span>
               </div>
               <h1 className="text-4xl font-bold text-gray-900 mb-4">{article.title}</h1>
             </div>
 
-            <div 
+            <div
               className="prose prose-lg max-w-none"
               dangerouslySetInnerHTML={{ __html: serializeRichText(article.content) }}
             />
+
+            <div className="mt-8 pt-6 border-t border-gray-200">
+              <Link
+                href={`/${locale}/blog`}
+                className="text-sky-600 hover:text-sky-700 font-medium flex items-center"
+              >
+                <svg className="w-5 h-5 me-2 rtl:rotate-180" fill="none" stroke="currentColor" viewBox="0 0 24 24">
+                  <path strokeLinecap="round" strokeLinejoin="round" strokeWidth={2} d="M15 19l-7-7 7-7" />
+                </svg>
+                {dict.common.backToList}
+              </Link>
+            </div>
           </div>
         </div>
       </article>
     </div>
   )
-}
-
-// Build time'da fetch skip edildi - runtime'da dynamic olarak render edilecek
-export async function generateStaticParams() {
-  return [] // Empty array - all pages will be generated on-demand
 }
