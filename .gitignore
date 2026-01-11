@@ -45,3 +45,7 @@ next-env.d.ts
 /public/media
 payload-types.ts
 .env.production
+
+# Environment files
+.env.local
+.env*.local
