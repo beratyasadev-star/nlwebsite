@@ -62,9 +62,7 @@ export default buildConfig({
         enableRichTextLink: false,
         enableRichTextRelationship: false,
       },
-      versions: {
-        drafts: true,
-      },
+      versions: false,
       hooks: {
         beforeChange: [
           debugBeforeChange,
@@ -233,9 +231,7 @@ export default buildConfig({
         enableRichTextLink: false,
         enableRichTextRelationship: false,
       },
-      versions: {
-        drafts: true,
-      },
+      versions: false,
       hooks: {
         beforeChange: [
           debugBeforeChange,
@@ -418,9 +414,7 @@ export default buildConfig({
         enableRichTextLink: false,
         enableRichTextRelationship: false,
       },
-      versions: {
-        drafts: true,
-      },
+      versions: false,
       hooks: {
         beforeChange: [
           debugBeforeChange,
@@ -606,9 +600,7 @@ export default buildConfig({
         enableRichTextLink: false,
         enableRichTextRelationship: false,
       },
-      versions: {
-        drafts: true,
-      },
+      versions: false,
       hooks: {
         beforeChange: [
           debugBeforeChange,
