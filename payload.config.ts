@@ -2,6 +2,7 @@ import { buildConfig } from 'payload/config'
 import { mongooseAdapter } from '@payloadcms/db-mongodb'
 import { slateEditor } from '@payloadcms/richtext-slate'
 import { webpackBundler } from '@payloadcms/bundler-webpack'
+import { debugBeforeChange, debugAfterChange } from './src/lib/debug-hooks'
 
 export default buildConfig({
   serverURL: process.env.PAYLOAD_PUBLIC_SERVER_URL || 'https://nlwebsite.onrender.com',
@@ -66,6 +67,7 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
+          debugBeforeChange,
           async ({ data, req, operation }: any) => {
             if (operation === 'create' && data.slug && req.query?.duplicate) {
               data.slug = `${data.slug}-${Date.now()}`
@@ -73,6 +75,7 @@ export default buildConfig({
             return data
           },
         ],
+        afterChange: [debugAfterChange],
       },
       access: {
         read: () => true,
@@ -235,6 +238,7 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
+          debugBeforeChange,
           async ({ data, operation, req }: any) => {
             if (operation === 'create' && data.slug) {
               const existingDoc = await req.payload.find({
@@ -265,6 +269,7 @@ export default buildConfig({
             return data
           },
         ],
+        afterChange: [debugAfterChange],
       },
       access: {
         read: () => true,
@@ -418,6 +423,7 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
+          debugBeforeChange,
           async ({ data, operation, req }: any) => {
             if (operation === 'create' && data.slug) {
               const existingDoc = await req.payload.find({
@@ -448,6 +454,7 @@ export default buildConfig({
             return data
           },
         ],
+        afterChange: [debugAfterChange],
       },
       access: {
         read: () => true,
@@ -604,6 +611,7 @@ export default buildConfig({
       },
       hooks: {
         beforeChange: [
+          debugBeforeChange,
           async ({ data, operation, req }: any) => {
             if (operation === 'create' && data.slug) {
               const existingDoc = await req.payload.find({
@@ -634,6 +642,7 @@ export default buildConfig({
             return data
           },
         ],
+        afterChange: [debugAfterChange],
       },
       access: {
         read: () => true,
