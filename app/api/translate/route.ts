@@ -12,6 +12,7 @@ const collectionFields: Record<string, string[]> = {
   haber: ['title', 'excerpt', 'content'],
   blog: ['title', 'excerpt', 'content'],
   duyurular: ['title', 'excerpt', 'content'],
+  rehber: ['title', 'excerpt', 'content'],
   sss: ['question', 'answer'],
 }
 
@@ -24,7 +25,7 @@ interface TranslateRequest {
 export async function POST(req: NextRequest) {
   try {
     const body: TranslateRequest = await req.json()
-    const { collection, docId, targetLocales = ['ku', 'ar'] } = body
+    const { collection, docId, targetLocales = ['ku', 'ar', 'nl', 'en'] } = body
 
     // Validation
     if (!collection || !docId) {
@@ -140,7 +141,7 @@ export async function GET(req: NextRequest) {
   try {
     const statuses: Record<string, any> = {}
 
-    for (const locale of ['tr', 'ku', 'ar']) {
+    for (const locale of ['tr', 'ku', 'ar', 'nl', 'en']) {
       const res = await fetch(
         `${PAYLOAD_API}/${collection}/${docId}?locale=${locale}&depth=0`,
         { headers: { 'Content-Type': 'application/json' } }

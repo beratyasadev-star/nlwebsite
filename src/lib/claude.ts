@@ -4,7 +4,7 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
 })
 
-type TargetLanguage = 'ku' | 'ar'
+type TargetLanguage = 'ku' | 'ar' | 'nl' | 'en'
 
 interface TranslateOptions {
   text: string
@@ -37,6 +37,26 @@ const languageConfigs: Record<TargetLanguage, LanguageConfig> = {
 - Mültecilere uygun sade ve anlaşılır bir dil kullan
 - Teknik terimleri açık şekilde ifade et
 - Resmi ama samimi bir ton kullan`
+  },
+  nl: {
+    name: 'Hollandaca',
+    nativeName: 'Nederlands',
+    direction: 'ltr',
+    notes: `- Standart Hollandaca (ABN) kullan
+- Hollanda'daki resmi kurumların kullandığı terminolojiyi tercih et
+- Açık ve anlaşılır bir dil kullan
+- Resmi ama samimi bir ton kullan
+- Hollandaca'ya özgü deyimleri uygun şekilde kullan`
+  },
+  en: {
+    name: 'İngilizce',
+    nativeName: 'English',
+    direction: 'ltr',
+    notes: `- Açık ve basit İngilizce kullan (Plain English)
+- Uluslararası okuyuculara uygun bir dil kullan
+- Teknik terimleri açık şekilde ifade et
+- Resmi ama samimi bir ton kullan
+- Karmaşık cümle yapılarından kaçın`
   }
 }
 

@@ -17,7 +17,7 @@ const anthropic = new Anthropic({
   apiKey: process.env.ANTHROPIC_API_KEY!,
 })
 
-type TargetLanguage = 'ku' | 'ar'
+type TargetLanguage = 'ku' | 'ar' | 'nl' | 'en'
 
 const languageConfigs: Record<TargetLanguage, { name: string; notes: string }> = {
   ku: {
@@ -33,6 +33,22 @@ const languageConfigs: Record<TargetLanguage, { name: string; notes: string }> =
 - Mültecilere uygun sade ve anlaşılır bir dil kullan
 - Teknik terimleri açık şekilde ifade et
 - Resmi ama samimi bir ton kullan`
+  },
+  nl: {
+    name: 'Hollandaca',
+    notes: `- Standart Hollandaca (ABN) kullan
+- Hollanda'daki resmi kurumların kullandığı terminolojiyi tercih et
+- Açık ve anlaşılır bir dil kullan
+- Resmi ama samimi bir ton kullan
+- Hollandaca'ya özgü deyimleri uygun şekilde kullan`
+  },
+  en: {
+    name: 'İngilizce',
+    notes: `- Açık ve basit İngilizce kullan (Plain English)
+- Uluslararası okuyuculara uygun bir dil kullan
+- Teknik terimleri açık şekilde ifade et
+- Resmi ama samimi bir ton kullan
+- Karmaşık cümle yapılarından kaçın`
   }
 }
 
@@ -41,6 +57,7 @@ const collections: Record<string, string[]> = {
   haber: ['title', 'excerpt'],
   blog: ['title', 'excerpt'],
   duyurular: ['title', 'excerpt'],
+  rehber: ['title', 'excerpt'],
   sss: ['question'],  // answer richText, fallback kullanacak
 }
 
@@ -188,7 +205,7 @@ async function saveTranslation(
 async function main() {
   console.log('🌍 Çeviri işlemi başlıyor...\n')
 
-  const targetLocales: TargetLanguage[] = ['ku', 'ar']
+  const targetLocales: TargetLanguage[] = ['ku', 'ar', 'nl', 'en']
   let totalTranslated = 0
   let totalFailed = 0
 

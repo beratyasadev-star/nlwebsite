@@ -18,6 +18,8 @@ export default buildConfig({
       { label: 'Türkçe', code: 'tr' },
       { label: 'Kurdî (Kurmancî)', code: 'ku' },
       { label: 'العربية', code: 'ar' },
+      { label: 'Nederlands', code: 'nl' },
+      { label: 'English', code: 'en' },
     ],
     defaultLocale: 'tr',
     fallback: true,
