@@ -87,11 +87,11 @@ export default function Header({ locale, dict }: HeaderProps) {
           <Link href={`/${locale}`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
             {dict.nav.home}
           </Link>
-          <Link href={`/${locale}/haberler`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
-            {dict.nav.news}
-          </Link>
           <Link href={`/${locale}/rehber`} className="px-6 py-5 text-gray-700 hover:text-emerald-600 hover:bg-emerald-50 transition font-medium border-b-2 border-transparent hover:border-emerald-600">
             {dict.nav.guides}
+          </Link>
+          <Link href={`/${locale}/haberler`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
+            {dict.nav.news}
           </Link>
           <Link href={`/${locale}/blog`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
             {dict.nav.blog}
