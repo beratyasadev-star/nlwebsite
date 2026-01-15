@@ -7,6 +7,7 @@
     "home": "Ana Sayfa",
     "news": "Bilgi Bankası",
     "blog": "Blog",
+    "guides": "Giriş Rehberi",
     "announcements": "Duyurular",
     "faq": "Sık Sorulan Sorular",
     "about": "Hakkımızda",
@@ -29,6 +30,7 @@
     "contactDescription": "Soru, görüş ve önerileriniz için",
     "contactForm": "İletişim Formu",
     "blogDescription": "Köşe yazıları, değerlendirmeler, röportajlar",
+    "guidesDescription": "Hollanda'da yeni başlayanlar için adım adım rehberler",
     "announcementsDescription": "Hollanda'daki mülteciler için önemli duyuru ve bildirimler"
   },
   "whatsapp": {
@@ -117,6 +119,7 @@
     "backToList": "Listeye Dön",
     "featured": "Öne Çıkan",
     "columnist": "Köşe Yazarı",
+    "guideLabel": "Başlangıç Rehberi",
     "urgentAnnouncements": "Acil Duyurular",
     "generalAnnouncements": "Genel Duyurular",
     "urgent": "Acil",

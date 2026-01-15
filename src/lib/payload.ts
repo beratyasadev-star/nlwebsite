@@ -161,6 +161,52 @@ export async function getAnnouncementBySlug(slug: string, locale: string = 'tr')
   }
 }
 
+// Giriş Rehberi için
+export async function getGuides(limit?: number, locale: string = 'tr') {
+  try {
+    const params = new URLSearchParams()
+    if (limit) params.append('limit', limit.toString())
+    params.append('sort', '-publishedDate')
+    params.append('depth', '2')
+    params.append('locale', locale)
+    params.append('fallbackLocale', 'tr')
+
+    const res = await fetch(`${PAYLOAD_API_URL}/rehber?${params}`, {
+      next: { revalidate: 60 }
+    })
+
+    if (!res.ok) throw new Error('Failed to fetch guides')
+
+    const data = await res.json()
+    return data.docs || []
+  } catch (error) {
+    console.error('Error fetching guides:', error)
+    return []
+  }
+}
+
+export async function getGuideBySlug(slug: string, locale: string = 'tr') {
+  try {
+    const params = new URLSearchParams()
+    params.append('where[slug][equals]', slug)
+    params.append('depth', '2')
+    params.append('locale', locale)
+    params.append('fallbackLocale', 'tr')
+
+    const res = await fetch(`${PAYLOAD_API_URL}/rehber?${params}`, {
+      next: { revalidate: 60 }
+    })
+
+    if (!res.ok) throw new Error('Failed to fetch guide')
+
+    const data = await res.json()
+    return data.docs?.[0] || null
+  } catch (error) {
+    console.error('Error fetching guide by slug:', error)
+    return null
+  }
+}
+
 // SSS için
 export async function getFAQs(locale: string = 'tr') {
   try {

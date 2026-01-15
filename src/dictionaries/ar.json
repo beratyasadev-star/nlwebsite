@@ -7,6 +7,7 @@
     "home": "الصفحة الرئيسية",
     "news": "بنك المعلومات",
     "blog": "المدونة",
+    "guides": "دليل البداية",
     "announcements": "الإعلانات",
     "faq": "الأسئلة الشائعة",
     "about": "من نحن",
@@ -29,6 +30,7 @@
     "contactDescription": "لأسئلتكم وآرائكم واقتراحاتكم",
     "contactForm": "نموذج الاتصال",
     "blogDescription": "مقالات الرأي والتقييمات والمقابلات",
+    "guidesDescription": "أدلة خطوة بخطوة للمبتدئين في هولندا",
     "announcementsDescription": "إعلانات ومعلومات مهمة للاجئين في هولندا"
   },
   "whatsapp": {
@@ -117,6 +119,7 @@
     "backToList": "العودة إلى القائمة",
     "featured": "مميز",
     "columnist": "كاتب عمود",
+    "guideLabel": "دليل البداية",
     "urgentAnnouncements": "إعلانات عاجلة",
     "generalAnnouncements": "إعلانات عامة",
     "urgent": "عاجل",

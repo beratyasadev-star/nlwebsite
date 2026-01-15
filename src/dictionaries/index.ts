@@ -10,6 +10,7 @@ export interface Dictionary {
     home: string
     news: string
     blog: string
+    guides: string
     announcements: string
     faq: string
     about: string
@@ -32,6 +33,7 @@ export interface Dictionary {
     contactDescription: string
     contactForm: string
     blogDescription: string
+    guidesDescription: string
     announcementsDescription: string
   }
   whatsapp: {
@@ -114,6 +116,7 @@ export interface Dictionary {
     backToList: string
     featured: string
     columnist: string
+    guideLabel: string
     urgentAnnouncements: string
     generalAnnouncements: string
     urgent: string

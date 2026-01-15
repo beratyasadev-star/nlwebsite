@@ -402,6 +402,186 @@ export default buildConfig({
       timestamps: true,
     },
     {
+      slug: 'rehber',
+      labels: {
+        singular: 'Giriş Rehberi',
+        plural: 'Giriş Rehberleri',
+      },
+      dbName: 'rehberlers',
+      admin: {
+        useAsTitle: 'title',
+        defaultColumns: ['title', 'publishedDate'],
+        enableRichTextLink: false,
+        enableRichTextRelationship: false,
+      },
+      versions: false,
+      hooks: {
+        beforeChange: [
+          debugBeforeChange,
+          async ({ data, operation, req }: any) => {
+            if (operation === 'create' && data.slug) {
+              const existingDoc = await req.payload.find({
+                collection: 'rehber',
+                where: { slug: { equals: data.slug } },
+                limit: 1,
+              })
+
+              if (existingDoc.docs.length > 0) {
+                let counter = 1
+                let newSlug = `${data.slug}-kopya`
+
+                while (true) {
+                  const check = await req.payload.find({
+                    collection: 'rehber',
+                    where: { slug: { equals: newSlug } },
+                    limit: 1,
+                  })
+
+                  if (check.docs.length === 0) break
+                  counter++
+                  newSlug = `${data.slug}-kopya-${counter}`
+                }
+
+                data.slug = newSlug
+              }
+            }
+            return data
+          },
+        ],
+        afterChange: [debugAfterChange],
+      },
+      access: {
+        read: () => true,
+        create: () => true,
+        update: () => true,
+        delete: () => true,
+      },
+      fields: [
+        {
+          name: 'title',
+          type: 'text',
+          required: true,
+          label: 'Başlık',
+          localized: true,
+        },
+        {
+          name: 'slug',
+          type: 'text',
+          required: true,
+          unique: true,
+          label: 'URL',
+          admin: {
+            hidden: true,
+          },
+          hooks: {
+            beforeValidate: [
+              async ({ value, data, operation, req }: any) => {
+                let slug = value
+
+                if (!slug && data?.title) {
+                  slug = data.title
+                    .toLowerCase()
+                    .replace(/ş/g, 's')
+                    .replace(/ğ/g, 'g')
+                    .replace(/ü/g, 'u')
+                    .replace(/ı/g, 'i')
+                    .replace(/ö/g, 'o')
+                    .replace(/ç/g, 'c')
+                    .replace(/[^a-z0-9]+/g, '-')
+                    .replace(/^-+|-+$/g, '')
+                }
+
+                if (operation === 'create' && slug && req?.payload) {
+                  const existing = await req.payload.find({
+                    collection: 'rehber',
+                    where: { slug: { equals: slug } },
+                    limit: 1,
+                  })
+
+                  if (existing.docs.length > 0) {
+                    let counter = 1
+                    let newSlug = `${slug}-kopya`
+
+                    while (true) {
+                      const check = await req.payload.find({
+                        collection: 'rehber',
+                        where: { slug: { equals: newSlug } },
+                        limit: 1,
+                      })
+
+                      if (check.docs.length === 0) break
+                      counter++
+                      newSlug = `${slug}-kopya-${counter}`
+                    }
+
+                    slug = newSlug
+                  }
+                }
+
+                return slug
+              },
+            ],
+          },
+        },
+        {
+          name: 'excerpt',
+          type: 'textarea',
+          label: 'Kısa Özet',
+          localized: true,
+        },
+        {
+          name: 'featuredImage',
+          type: 'upload',
+          relationTo: 'medya',
+          required: true,
+          label: 'Kapak Görseli',
+        },
+        {
+          name: 'content',
+          type: 'richText',
+          required: true,
+          label: 'İçerik',
+          localized: true,
+        },
+        {
+          name: 'publishedDate',
+          type: 'date',
+          required: true,
+          label: 'Yayın Tarihi',
+          defaultValue: () => new Date().toISOString(),
+          admin: {
+            hidden: true,
+          },
+        },
+        {
+          name: 'status',
+          type: 'select',
+          required: true,
+          defaultValue: 'draft',
+          options: [
+            { label: 'Taslak', value: 'draft' },
+            { label: 'Yayında', value: 'published' },
+          ],
+        },
+        {
+          name: 'translationStatus',
+          type: 'select',
+          localized: true,
+          admin: {
+            position: 'sidebar',
+            description: 'Çeviri durumu',
+          },
+          options: [
+            { label: 'Orijinal', value: 'original' },
+            { label: 'Otomatik Çeviri', value: 'auto' },
+            { label: 'Gözden Geçirildi', value: 'reviewed' },
+          ],
+          defaultValue: 'original',
+        },
+      ],
+      timestamps: true,
+    },
+    {
       slug: 'duyurular',
       labels: {
         singular: 'Duyuru',
