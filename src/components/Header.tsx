@@ -93,9 +93,6 @@ export default function Header({ locale, dict }: HeaderProps) {
           <Link href={`/${locale}/haberler`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
             {dict.nav.news}
           </Link>
-          <Link href={`/${locale}/blog`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
-            {dict.nav.blog}
-          </Link>
           <Link href={`/${locale}/duyurular`} className="px-6 py-5 text-gray-700 hover:text-sky-600 hover:bg-sky-50 transition font-medium border-b-2 border-transparent hover:border-sky-600">
             {dict.nav.announcements}
           </Link>
@@ -192,15 +189,6 @@ export default function Header({ locale, dict }: HeaderProps) {
                 <span className="flex-1">{dict.nav.guides}</span>
               </Link>
 
-              <Link
-                href={`/${locale}/blog`}
-                onClick={() => setIsMobileMenuOpen(false)}
-                className={`block px-4 py-3 hover:bg-sky-50 transition ${
-                  pathname === `/${locale}/blog` ? 'text-sky-600 font-bold' : 'text-gray-700 hover:text-sky-600'
-                }`}
-              >
-                {dict.nav.blog}
-              </Link>
               <Link
                 href={`/${locale}/duyurular`}
                 onClick={() => setIsMobileMenuOpen(false)}
