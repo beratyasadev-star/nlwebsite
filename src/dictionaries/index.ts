@@ -11,6 +11,7 @@ export interface Dictionary {
     news: string
     blog: string
     guides: string
+    emergency: string
     announcements: string
     faq: string
     about: string
@@ -107,6 +108,45 @@ export interface Dictionary {
     contact: string
     contactText: string
     copyright: string
+  }
+  emergency: {
+    title: string
+    subtitle: string
+    emergencyDescription: string
+    policeNonEmergency: string
+    policeNonEmergencyDesc: string
+    refugeeHealth: string
+    refugeeHealthDesc: string
+    mentalHealthTitle: string
+    suicidePrevention: string
+    suicidePreventionDesc: string
+    listeningLine: string
+    listeningLineDesc: string
+    mindKorrelatie: string
+    mindKorrelatieDesc: string
+    domesticViolenceTitle: string
+    safeHome: string
+    safeHomeDesc: string
+    fier: string
+    fierDesc: string
+    childLine: string
+    childLineDesc: string
+    victimSupport: string
+    victimSupportDesc: string
+    refugeeServicesTitle: string
+    indDesc: string
+    vluchtelingenWerkDesc: string
+    askvDesc: string
+    legalTitle: string
+    legalAid: string
+    legalAidDesc: string
+    discrimination: string
+    discriminationDesc: string
+    free: string
+    importantNote: string
+    importantNoteDesc: string
+    needMoreHelp: string
+    contactUs: string
   }
   common: {
     readMore: string
