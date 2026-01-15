@@ -20,7 +20,7 @@ export default async function HakkimizdaPage({ params }: PageProps) {
 
             <div className="prose prose-lg max-w-none">
               <p className="text-lg text-gray-700 leading-relaxed mb-6">
-                <strong>NL Onderwijs</strong>, {dict.about.description}
+                <strong>Diaspora & Azadî</strong>, {dict.about.description}
               </p>
 
               <p className="text-gray-700 leading-relaxed mb-6">

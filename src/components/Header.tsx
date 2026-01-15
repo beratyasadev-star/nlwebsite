@@ -37,7 +37,7 @@ export default function Header({ locale, dict }: HeaderProps) {
 
           <Link href={`/${locale}`} className="flex items-center gap-3 md:ml-0">
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">NL Onderwijs</h1>
+              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Diaspora & Azadî</h1>
               <p className="text-xs text-gray-500">
                 {locale === 'tr' ? 'Mülteci Dayanışma Platformu' :
                  locale === 'ku' ? 'Platforma Hevgirtina Penaberan' :
