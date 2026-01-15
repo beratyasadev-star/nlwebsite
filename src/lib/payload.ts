@@ -166,7 +166,7 @@ export async function getGuides(limit?: number, locale: string = 'tr') {
   try {
     const params = new URLSearchParams()
     if (limit) params.append('limit', limit.toString())
-    params.append('sort', '-publishedDate')
+    params.append('sort', 'order')
     params.append('depth', '2')
     params.append('locale', locale)
     params.append('fallbackLocale', 'tr')

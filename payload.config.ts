@@ -410,7 +410,7 @@ export default buildConfig({
       dbName: 'rehberlers',
       admin: {
         useAsTitle: 'title',
-        defaultColumns: ['title', 'publishedDate'],
+        defaultColumns: ['title', 'order', 'publishedDate'],
         enableRichTextLink: false,
         enableRichTextRelationship: false,
       },
@@ -551,6 +551,15 @@ export default buildConfig({
           defaultValue: () => new Date().toISOString(),
           admin: {
             hidden: true,
+          },
+        },
+        {
+          name: 'order',
+          type: 'number',
+          label: 'Sıralama',
+          defaultValue: 0,
+          admin: {
+            description: 'Düşük numara en üstte görünür. 0 varsayılan değerdir.',
           },
         },
         {
