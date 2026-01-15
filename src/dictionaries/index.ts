@@ -168,6 +168,8 @@ const dictionaries: Record<Locale, () => Promise<Dictionary>> = {
   tr: () => import('./tr.json').then((module) => module.default),
   ku: () => import('./ku.json').then((module) => module.default),
   ar: () => import('./ar.json').then((module) => module.default),
+  nl: () => import('./nl.json').then((module) => module.default),
+  en: () => import('./en.json').then((module) => module.default),
 }
 
 export async function getDictionary(locale: Locale): Promise<Dictionary> {

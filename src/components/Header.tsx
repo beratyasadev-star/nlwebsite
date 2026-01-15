@@ -41,7 +41,9 @@ export default function Header({ locale, dict }: HeaderProps) {
               <p className="text-xs text-gray-500">
                 {locale === 'tr' ? 'Göç ve Entegrasyon Dayanışma Platformu' :
                  locale === 'ku' ? 'Platforma Hevgirtina Koçberî û Entegrasyonê' :
-                 'منصة تضامن الهجرة والاندماج'}
+                 locale === 'ar' ? 'منصة تضامن الهجرة والاندماج' :
+                 locale === 'nl' ? 'Platform voor Migratie en Integratie Solidariteit' :
+                 'Migration and Integration Solidarity Platform'}
               </p>
             </div>
           </Link>
@@ -116,15 +118,19 @@ export default function Header({ locale, dict }: HeaderProps) {
             {/* Language Selector - Mobile */}
             <div className="px-4 pb-4 mb-4 border-b border-gray-100">
               <h3 className="text-base font-bold text-gray-700 uppercase tracking-wider mb-3">
-                {locale === 'tr' ? 'Dil Seçin' : locale === 'ku' ? 'Ziman Hilbijêrin' : 'اختر اللغة'}
+                {locale === 'tr' ? 'Dil Seçin' :
+                 locale === 'ku' ? 'Ziman Hilbijêrin' :
+                 locale === 'ar' ? 'اختر اللغة' :
+                 locale === 'nl' ? 'Kies Taal' :
+                 'Select Language'}
               </h3>
-              <div className="flex gap-2">
+              <div className="flex flex-wrap gap-2">
                 {locales.map((loc) => (
                   <Link
                     key={loc}
                     href={`/${loc}${pathnameWithoutLocale}`}
                     onClick={() => setIsMobileMenuOpen(false)}
-                    className={`px-4 py-2 rounded-lg text-sm font-medium transition ${
+                    className={`px-3 py-2 rounded-lg text-sm font-medium transition ${
                       locale === loc
                         ? 'bg-sky-600 text-white'
                         : 'bg-gray-100 text-gray-700 hover:bg-gray-200'

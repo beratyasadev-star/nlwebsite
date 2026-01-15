@@ -1,4 +1,4 @@
-export const locales = ['tr', 'ku', 'ar'] as const
+export const locales = ['tr', 'ku', 'ar', 'nl', 'en'] as const
 export type Locale = (typeof locales)[number]
 
 export const defaultLocale: Locale = 'tr'
@@ -7,12 +7,16 @@ export const localeNames: Record<Locale, string> = {
   tr: 'Türkçe',
   ku: 'Kurdî',
   ar: 'العربية',
+  nl: 'Nederlands',
+  en: 'English',
 }
 
 export const localeDirections: Record<Locale, 'ltr' | 'rtl'> = {
   tr: 'ltr',
   ku: 'ltr',
   ar: 'rtl',
+  nl: 'ltr',
+  en: 'ltr',
 }
 
 // Dil algılama için
