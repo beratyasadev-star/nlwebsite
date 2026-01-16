@@ -2,10 +2,27 @@
 
 import Link from 'next/link'
 import Image from 'next/image'
-import { useState } from 'react'
+import { useState, memo } from 'react'
 import { usePathname } from 'next/navigation'
 import { Locale, locales, localeNames } from '@/src/lib/i18n'
 import { Dictionary } from '@/src/dictionaries'
+
+// Memoized logo component - pathname değişimlerinde yeniden render olmaz
+const HeaderLogo = memo(function HeaderLogo() {
+  return (
+    <Image
+      src="/logo-small.png"
+      alt="Diaspora & Azadî Logo"
+      width={100}
+      height={100}
+      sizes="(max-width: 640px) 56px, (max-width: 768px) 64px, (max-width: 1024px) 80px, 88px"
+      className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-[88px] lg:h-[88px]
+                 rounded-xl shadow-lg object-cover
+                 ring-2 ring-amber-100 hover:ring-amber-300 transition-all"
+      priority
+    />
+  )
+})
 
 interface HeaderProps {
   locale: Locale
@@ -52,16 +69,7 @@ export default function Header({ locale, dict }: HeaderProps) {
           {/* Logo + Branding */}
           <Link href={`/${locale}`} className="flex items-center gap-3 md:gap-4">
             <div className="relative flex-shrink-0">
-              <Image
-                src="/logo.jpeg"
-                alt="Diaspora & Azadî Logo"
-                width={88}
-                height={88}
-                className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-[88px] lg:h-[88px]
-                           rounded-xl shadow-lg object-cover
-                           ring-2 ring-amber-100 hover:ring-amber-300 transition-all"
-                priority
-              />
+              <HeaderLogo />
             </div>
 
             <div className="flex flex-col justify-center">
