@@ -128,16 +128,16 @@ export default function Header({ locale, dict }: HeaderProps) {
       </div>
 
       {/* Desktop Navigation */}
-      <nav className="hidden md:block bg-gradient-to-r from-sky-600 to-sky-700 shadow-inner">
+      <nav className="hidden md:block bg-slate-50 border-t border-b border-slate-200">
         <div className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8">
           <ul className="flex items-center -mx-1">
             <li>
               <Link
                 href={`/${locale}`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname === `/${locale}`
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-sky-500 text-sky-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.home}
               </Link>
@@ -145,10 +145,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li>
               <Link
                 href={`/${locale}/rehber`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname.includes('/rehber')
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-emerald-500 text-emerald-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.guides}
               </Link>
@@ -156,10 +156,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li>
               <Link
                 href={`/${locale}/haberler`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname.includes('/haberler')
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-sky-500 text-sky-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.news}
               </Link>
@@ -167,10 +167,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li>
               <Link
                 href={`/${locale}/sss`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname.includes('/sss')
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-amber-500 text-amber-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.faq}
               </Link>
@@ -178,10 +178,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li>
               <Link
                 href={`/${locale}/duyurular`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname.includes('/duyurular')
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-sky-500 text-sky-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.announcements}
               </Link>
@@ -189,10 +189,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li>
               <Link
                 href={`/${locale}/hakkimizda`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname.includes('/hakkimizda')
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-sky-500 text-sky-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.about}
               </Link>
@@ -200,10 +200,10 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li>
               <Link
                 href={`/${locale}/iletisim`}
-                className={`block px-5 py-3.5 text-sm font-medium transition
+                className={`block px-5 py-3 text-sm font-medium transition border-b-2 -mb-[1px]
                   ${pathname.includes('/iletisim')
-                    ? 'bg-sky-800/50 text-white'
-                    : 'text-white/90 hover:bg-sky-800/30 hover:text-white'}`}
+                    ? 'border-sky-500 text-sky-700 bg-white'
+                    : 'border-transparent text-slate-600 hover:text-slate-900 hover:bg-white/60'}`}
               >
                 {dict.nav.contact}
               </Link>
@@ -213,7 +213,7 @@ export default function Header({ locale, dict }: HeaderProps) {
             <li className="lg:hidden ml-auto">
               <Link
                 href={`/${locale}/acil`}
-                className="flex items-center gap-2 px-4 py-2.5 my-1 mr-1
+                className="flex items-center gap-2 px-4 py-2 my-1 mr-1
                            bg-red-500 hover:bg-red-600 text-white text-sm font-semibold
                            rounded-lg transition-all"
               >
