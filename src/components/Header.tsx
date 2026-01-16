@@ -1,6 +1,7 @@
 'use client'
 
 import Link from 'next/link'
+import Image from 'next/image'
 import { useState } from 'react'
 import { usePathname } from 'next/navigation'
 import { Locale, locales, localeNames } from '@/src/lib/i18n'
@@ -36,9 +37,17 @@ export default function Header({ locale, dict }: HeaderProps) {
           </button>
 
           <Link href={`/${locale}`} className="flex items-center gap-3 md:ml-0">
+            <Image
+              src="/logo.jpeg"
+              alt="Diaspora & Azadî Logo"
+              width={56}
+              height={56}
+              className="w-12 h-12 md:w-14 md:h-14 rounded-lg shadow-md object-cover"
+              priority
+            />
             <div>
-              <h1 className="text-2xl md:text-3xl font-bold text-gray-900">Diaspora & Azadî</h1>
-              <p className="text-xs text-gray-500">
+              <h1 className="text-xl md:text-2xl lg:text-3xl font-bold text-gray-900">Diaspora & Azadî</h1>
+              <p className="text-[10px] md:text-xs text-gray-500 hidden sm:block">
                 {locale === 'tr' ? 'Göç ve Entegrasyon Dayanışma Platformu' :
                  locale === 'ku' ? 'Platforma Hevgirtina Koçberî û Entegrasyonê' :
                  locale === 'ar' ? 'منصة تضامن الهجرة والاندماج' :
