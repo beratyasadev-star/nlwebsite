@@ -11,10 +11,10 @@ import { Dictionary } from '@/src/dictionaries'
 const HeaderLogo = memo(function HeaderLogo() {
   return (
     <Image
-      src="/logo-small.png"
+      src="/logo-small.jpg"
       alt="Diaspora & Azadî Logo"
-      width={100}
-      height={100}
+      width={200}
+      height={200}
       sizes="(max-width: 640px) 56px, (max-width: 768px) 64px, (max-width: 1024px) 80px, 88px"
       className="w-14 h-14 sm:w-16 sm:h-16 md:w-20 md:h-20 lg:w-[88px] lg:h-[88px]
                  rounded-xl shadow-lg object-cover
