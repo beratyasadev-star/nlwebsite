@@ -1,5 +1,6 @@
 /**
- * Tüm içerikleri Kürtçe ve Arapça'ya çevirir
+ * Tüm içerikleri 4 dile çevirir (Kürtçe, Arapça, Hollandaca, İngilizce)
+ * Kaynak dil: Türkçe
  * Kullanım: npx tsx scripts/translate-all.ts
  */
 
@@ -52,13 +53,13 @@ const languageConfigs: Record<TargetLanguage, { name: string; notes: string }> =
   }
 }
 
-// Koleksiyonlar ve çevrilecek alanlar (sadece text alanları - content fallback kullanacak)
+// Koleksiyonlar ve çevrilecek alanlar
 const collections: Record<string, string[]> = {
-  haber: ['title', 'excerpt'],
-  blog: ['title', 'excerpt'],
-  duyurular: ['title', 'excerpt'],
-  rehber: ['title', 'excerpt'],
-  sss: ['question'],  // answer richText, fallback kullanacak
+  haber: ['title', 'excerpt', 'content'],
+  blog: ['title', 'excerpt', 'content'],
+  duyurular: ['title', 'excerpt', 'content'],
+  rehber: ['title', 'excerpt', 'content'],
+  sss: ['question', 'answer'],
 }
 
 async function translateText(text: string, targetLang: TargetLanguage): Promise<string> {
@@ -164,27 +165,20 @@ async function saveTranslation(
   translatedFields: Record<string, any>
 ): Promise<boolean> {
   try {
-    // Tüm localized alanları orijinalden kopyala, çevrilenleri üzerine yaz
-    const payload: Record<string, any> = {}
-
-    // Collection'a göre alanları ayarla (sadece title/excerpt - content fallback kullanacak)
-    if (collection === 'sss') {
-      // SSS için question (answer richText olduğu için atlıyoruz)
-      if (translatedFields.question) {
-        payload.question = translatedFields.question
-      }
-    } else {
-      // Haber, Blog, Duyuru için sadece title ve excerpt
-      if (translatedFields.title) {
-        payload.title = translatedFields.title
-      }
-      if (translatedFields.excerpt) {
-        payload.excerpt = translatedFields.excerpt
-      }
+    const payload: Record<string, any> = {
+      slug: originalDoc.slug, // Slug'ı koru (unique hatası olmasın)
+      translationStatus: 'auto'
     }
 
-    // Çeviri durumunu işaretle
-    payload.translationStatus = 'auto'
+    // Collection'a göre alanları ayarla
+    if (collection === 'sss') {
+      if (translatedFields.question) payload.question = translatedFields.question
+      if (translatedFields.answer) payload.answer = translatedFields.answer
+    } else {
+      if (translatedFields.title) payload.title = translatedFields.title
+      if (translatedFields.excerpt) payload.excerpt = translatedFields.excerpt
+      if (translatedFields.content) payload.content = translatedFields.content
+    }
 
     const res = await fetch(`${PAYLOAD_API}/${collection}/${docId}?locale=${locale}`, {
       method: 'PATCH',

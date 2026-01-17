@@ -15,7 +15,7 @@ const PAYLOAD_API = process.env.NEXT_PUBLIC_PAYLOAD_API_URL || 'http://localhost
 const collections = ['haber', 'blog', 'duyurular', 'rehber', 'sss', 'medya']
 
 // Desteklenen locale'ler
-const locales = ['tr', 'ku', 'ar']
+const locales = ['tr', 'ku', 'ar', 'nl', 'en']
 
 async function fetchCollection(collection: string): Promise<any[]> {
   const allDocs: any[] = []
@@ -90,9 +90,11 @@ async function main() {
     }
   }
 
-  // Dosya adını tarihle oluştur
-  const today = new Date().toISOString().split('T')[0] // YYYY-MM-DD
-  const filename = `export-${today}.json`
+  // Dosya adını tarih ve saatle oluştur
+  const now = new Date()
+  const date = now.toISOString().split('T')[0] // YYYY-MM-DD
+  const time = now.toTimeString().split(' ')[0].replace(/:/g, '-') // HH-MM-SS
+  const filename = `export-${date}_${time}.json`
   const backupDir = path.resolve(process.cwd(), 'backups')
   const filepath = path.join(backupDir, filename)
 

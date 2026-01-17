@@ -22,9 +22,19 @@ function truncateText(text: string, maxLength: number = 100): string {
 export default async function Home({ params }: PageProps) {
   const { locale } = await params
   const dict = await getDictionary(locale as Locale)
-  const sliderNews = await getNews(5, locale)
   const latestNews = await getNews(6, locale)
-  const guides = await getGuides(4, locale)
+  const guides = await getGuides(undefined, locale)
+
+  // Slider için: önce rehberler, sonra haberler
+  const sliderGuides = guides.slice(0, 3).map((g: any) => ({
+    ...g,
+    type: 'guide' as const
+  }))
+  const sliderNews = latestNews.slice(0, 3).map((n: any) => ({
+    ...n,
+    type: 'news' as const
+  }))
+  const sliderItems = [...sliderGuides, ...sliderNews]
 
   return (
     <div className="min-h-screen relative">
@@ -83,7 +93,7 @@ export default async function Home({ params }: PageProps) {
 
       {/* Slider */}
       <section className="max-w-7xl mx-auto px-4 sm:px-6 lg:px-8 pt-8 pb-4 relative z-10">
-        <HeroSlider items={sliderNews} locale={locale} />
+        <HeroSlider items={sliderItems} locale={locale} />
       </section>
 
       {/* Newsletter + WhatsApp */}

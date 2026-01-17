@@ -8,6 +8,7 @@ interface SliderItem {
   title: string
   excerpt: string
   slug: string
+  type: 'guide' | 'news'
   featuredImage?: {
     url: string
     alt?: string
@@ -115,7 +116,7 @@ export default function HeroSlider({ items, locale }: HeroSliderProps) {
       onMouseLeave={() => setIsPaused(false)}
     >
       <Link
-        href={`/${locale}/haberler/${currentItem.slug}`}
+        href={`/${locale}/${currentItem.type === 'guide' ? 'rehber' : 'haberler'}/${currentItem.slug}`}
         className={`absolute inset-0 cursor-pointer transition-opacity duration-300 ${
           isTransitioning ? 'opacity-0' : 'opacity-100'
         }`}
