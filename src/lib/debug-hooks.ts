@@ -10,6 +10,7 @@ const LOCALIZED_FIELDS: Record<string, string[]> = {
   haber: ['title', 'excerpt', 'content', 'translationStatus'],
   blog: ['title', 'excerpt', 'content', 'translationStatus'],
   duyurular: ['title', 'excerpt', 'content', 'translationStatus'],
+  rehber: ['title', 'excerpt', 'content', 'translationStatus'],
   sss: ['question', 'answer', 'translationStatus'],
 }
 
