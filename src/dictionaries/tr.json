@@ -78,20 +78,43 @@
   },
   "about": {
     "title": "Hakkımızda",
-    "description": "Hollanda'ya iyi bir başlangıç için birbirlerini bilgilendirmek, tavsiyelerde bulunmak ve desteklemek amacıyla bir grup mülteci Kürt aktivistin kurduğu girişimdir.",
-    "foundation": "Ağırlıklı olarak Türkiye ve Kürdistan halklarından oluşan özgürleştirici, dayanışmacı ve tabandan gelen bir oluşumdur.",
-    "purposeTitle": "Amacımız",
-    "purpose": "Girişimimiz, Hollanda'da yeni gelen göçmenlerin ve ilticaya başvurmuş insanların, Hollanda'daki günlük yaşama uyum sağlamalarına yardımcı olmak, bilgi ve becerilerini topluma kazandırmayı amaçlamaktadır.",
+    "intro": "Diaspora & Azadî, Hollanda'da yeni bir yaşam kuran mülteci ve göçmenlerin yanında durmak için bir araya gelen Kürt aktivistlerin oluşturduğu dayanışma topluluğudur.",
+    "challenge": "Yeni bir ülkede yeniden başlamak kolay değildir. Biz de bu yoldan geçtik, bu zorlukları yaşadık. İşte bu yüzden buradayız: Hollanda'ya yeni gelen her bireyin bu süreci yalnız yaşamaması, bilgiye ulaşması ve topluma güçlü bir şekilde katılabilmesi için.",
+    "movement": "Ağırlıklı olarak Türkiye ve Kürdistan halklarından oluşan, özgürleştirici ve tabandan gelen bir hareket olarak, dayanışmayı ve kolektif gücü merkeze alıyoruz.",
+    "visionTitle": "Vizyonumuz",
+    "vision": "Hollanda'da yaşayan tüm göçmen ve mültecilerin haklarını bilen, sesini yükselten, kendi ayakları üzerinde duran ve topluma katkı sunan bireyler olarak yaşadığı bir toplum hayal ediyoruz.",
     "missionTitle": "Misyonumuz",
-    "mission": "İlticacıların ve göçmenlerin isteklerini, hedeflerini, engelleri ve imkânları değerlendirmek ve şartları göze alarak onlara yardım sağlamak misyonunda olan Diaspora & Azadî, farklı sivil toplum kuruluşlarıyla iş birliği içerisinde etkinlikler yapmaktadır.",
-    "offerTitle": "Ne Sunuyoruz?",
+    "mission": "İltica ve göç sürecindeki insanların karşılaştığı engelleri birlikte aşmak, fırsatları keşfetmek ve herkesin kendi potansiyelini gerçekleştirebilmesi için pratik destek ve rehberlik sunmak. Bunu yaparken farklı sivil toplum kuruluşları, yerel inisiyatifler ve dayanışma ağlarıyla güç birliği yapıyoruz.",
+    "offerTitle": "Neler Sunuyoruz?",
     "offers": [
-      "İltica ve resmi işlemler hakkında güncel bilgiler",
-      "Eğitim ve kariyer geliştirme desteği",
-      "Entegrasyon sürecinde rehberlik",
-      "Aktif topluluk ve deneyim paylaşımı",
-      "Sivil toplum kuruluşlarıyla işbirliği ve etkinlikler"
-    ]
+      {
+        "icon": "document",
+        "title": "İltica ve Hukuki Süreçler",
+        "description": "Güncel bilgiler, deneyim paylaşımı ve doğru yönlendirme"
+      },
+      {
+        "icon": "academic",
+        "title": "Eğitim ve Kariyer Desteği",
+        "description": "Diploma denkliği, dil eğitimi, iş arama ve mesleki gelişim konularında rehberlik"
+      },
+      {
+        "icon": "users",
+        "title": "Toplumsal Entegrasyon",
+        "description": "Hollanda sistemini anlama, hakları öğrenme ve aktif vatandaşlık desteği"
+      },
+      {
+        "icon": "community",
+        "title": "Topluluk ve Dayanışma",
+        "description": "Deneyim paylaşımı, kültürel etkinlikler ve yalnız olmadığınızı hissettiren sıcak bir topluluk"
+      },
+      {
+        "icon": "link",
+        "title": "İşbirlikleri ve Etkinlikler",
+        "description": "Sivil toplum kuruluşları, belediyeler ve diğer platformlarla ortak projeler"
+      }
+    ],
+    "contactTitle": "Bizimle İletişime Geçin",
+    "contactText": "Sorularınız mı var? Desteğe mi ihtiyacınız var? Ya da topluluğumuza katılmak mı istiyorsunuz? İletişim sayfamızdan bize ulaşabilir veya sosyal medya hesaplarımızdan bizi takip edebilirsiniz."
   },
   "faq": {
     "title": "Sık Sorulan Sorular",

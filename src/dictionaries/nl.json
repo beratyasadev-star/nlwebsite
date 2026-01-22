@@ -78,20 +78,43 @@
   },
   "about": {
     "title": "Over Ons",
-    "description": "Een initiatief opgericht door een groep Koerdische vluchtelingenactivisten om elkaar te informeren, advies te geven en te ondersteunen voor een goede start in Nederland.",
-    "foundation": "Het is een bevrijdende, solidaire en grassroots organisatie die voornamelijk bestaat uit mensen uit Turkije en Koerdistan.",
-    "purposeTitle": "Ons Doel",
-    "purpose": "Ons initiatief heeft als doel nieuwkomers en asielzoekers te helpen zich aan te passen aan het dagelijks leven in Nederland en hun kennis en vaardigheden te benutten voor de samenleving.",
+    "intro": "Diaspora & Azadî is een solidariteitsgemeenschap opgericht door Koerdische activisten om vluchtelingen en migranten die een nieuw leven opbouwen in Nederland te ondersteunen.",
+    "challenge": "Opnieuw beginnen in een nieuw land is niet gemakkelijk. Wij hebben deze weg ook bewandeld en deze uitdagingen ervaren. Daarom zijn wij hier: zodat iedereen die nieuw is in Nederland dit proces niet alleen hoeft te doorlopen, toegang heeft tot informatie en sterk kan deelnemen aan de samenleving.",
+    "movement": "Als een bevrijdende en grassroots beweging die voornamelijk bestaat uit mensen uit Turkije en Koerdistan, stellen wij solidariteit en collectieve kracht centraal.",
+    "visionTitle": "Onze Visie",
+    "vision": "Wij dromen van een samenleving waarin alle migranten en vluchtelingen in Nederland leven als individuen die hun rechten kennen, hun stem verheffen, op eigen benen staan en bijdragen aan de samenleving.",
     "missionTitle": "Onze Missie",
-    "mission": "Diaspora & Azadî evalueert de wensen, doelen, obstakels en kansen van vluchtelingen en migranten en organiseert activiteiten in samenwerking met verschillende maatschappelijke organisaties.",
+    "mission": "Samen de obstakels overwinnen waarmee mensen in het asiel- en migratieproces worden geconfronteerd, kansen ontdekken en praktische ondersteuning en begeleiding bieden zodat iedereen zijn of haar potentieel kan realiseren. Daarbij werken we samen met verschillende maatschappelijke organisaties, lokale initiatieven en solidariteitsnetwerken.",
     "offerTitle": "Wat Bieden Wij?",
     "offers": [
-      "Actuele informatie over asiel en officiële procedures",
-      "Ondersteuning bij onderwijs en loopbaanontwikkeling",
-      "Begeleiding tijdens het integratieproces",
-      "Actieve gemeenschap en het delen van ervaringen",
-      "Samenwerking en activiteiten met maatschappelijke organisaties"
-    ]
+      {
+        "icon": "document",
+        "title": "Asiel en Juridische Processen",
+        "description": "Actuele informatie, ervaringsuitwisseling en juiste begeleiding"
+      },
+      {
+        "icon": "academic",
+        "title": "Onderwijs en Loopbaanondersteuning",
+        "description": "Diplomawaardering, taalonderwijs, werkzoeken en begeleiding bij loopbaanontwikkeling"
+      },
+      {
+        "icon": "users",
+        "title": "Maatschappelijke Integratie",
+        "description": "Het Nederlandse systeem begrijpen, rechten leren en actief burgerschap ondersteunen"
+      },
+      {
+        "icon": "community",
+        "title": "Gemeenschap en Solidariteit",
+        "description": "Ervaringsuitwisseling, culturele evenementen en een warme gemeenschap die je laat voelen dat je niet alleen bent"
+      },
+      {
+        "icon": "link",
+        "title": "Samenwerkingen en Evenementen",
+        "description": "Gezamenlijke projecten met maatschappelijke organisaties, gemeenten en andere platforms"
+      }
+    ],
+    "contactTitle": "Neem Contact Met Ons Op",
+    "contactText": "Heeft u vragen? Heeft u ondersteuning nodig? Of wilt u lid worden van onze gemeenschap? U kunt via onze contactpagina contact met ons opnemen of ons volgen op social media."
   },
   "faq": {
     "title": "Veelgestelde Vragen",

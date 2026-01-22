@@ -78,20 +78,43 @@
   },
   "about": {
     "title": "About Us",
-    "description": "An initiative founded by a group of Kurdish refugee activists to inform, advise and support each other for a good start in the Netherlands.",
-    "foundation": "It is a liberating, solidarity-based and grassroots organization mainly consisting of people from Turkey and Kurdistan.",
-    "purposeTitle": "Our Purpose",
-    "purpose": "Our initiative aims to help newcomers and asylum seekers adapt to daily life in the Netherlands and to bring their knowledge and skills as a gain to society.",
+    "intro": "Diaspora & Azadî is a solidarity community formed by Kurdish activists to stand alongside refugees and migrants building a new life in the Netherlands.",
+    "challenge": "Starting over in a new country is not easy. We have walked this path and experienced these challenges. That's why we're here: so that every individual new to the Netherlands doesn't have to go through this process alone, has access to information, and can participate strongly in society.",
+    "movement": "As a liberating and grassroots movement primarily composed of peoples from Turkey and Kurdistan, we center solidarity and collective power.",
+    "visionTitle": "Our Vision",
+    "vision": "We envision a society where all migrants and refugees living in the Netherlands exist as individuals who know their rights, raise their voices, stand on their own feet, and contribute to society.",
     "missionTitle": "Our Mission",
-    "mission": "Diaspora & Azadî evaluates the wishes, goals, obstacles and opportunities of refugees and migrants and organizes activities in cooperation with various civil society organizations.",
+    "mission": "To overcome together the obstacles faced by people in the asylum and migration process, discover opportunities, and provide practical support and guidance so everyone can realize their potential. While doing this, we collaborate with various civil society organizations, local initiatives, and solidarity networks.",
     "offerTitle": "What Do We Offer?",
     "offers": [
-      "Up-to-date information on asylum and official procedures",
-      "Education and career development support",
-      "Guidance during the integration process",
-      "Active community and experience sharing",
-      "Collaboration and activities with civil society organizations"
-    ]
+      {
+        "icon": "document",
+        "title": "Asylum and Legal Processes",
+        "description": "Up-to-date information, experience sharing, and proper guidance"
+      },
+      {
+        "icon": "academic",
+        "title": "Education and Career Support",
+        "description": "Diploma recognition, language training, job search, and guidance on professional development"
+      },
+      {
+        "icon": "users",
+        "title": "Social Integration",
+        "description": "Understanding the Dutch system, learning rights, and active citizenship support"
+      },
+      {
+        "icon": "community",
+        "title": "Community and Solidarity",
+        "description": "Experience sharing, cultural events, and a warm community that makes you feel you're not alone"
+      },
+      {
+        "icon": "link",
+        "title": "Collaborations and Events",
+        "description": "Joint projects with civil society organizations, municipalities, and other platforms"
+      }
+    ],
+    "contactTitle": "Get in Touch With Us",
+    "contactText": "Do you have questions? Need support? Or want to join our community? You can reach us through our contact page or follow us on social media."
   },
   "faq": {
     "title": "Frequently Asked Questions",

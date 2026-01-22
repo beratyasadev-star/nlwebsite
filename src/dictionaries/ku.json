@@ -78,20 +78,43 @@
   },
   "about": {
     "title": "Der Barê Me",
-    "description": "Destpêşxeriya ku ji hêla komeke çalakvanên penaber ên Kurd ve hatiye damezrandin e, bi armanca agahdarkirina hevdû, şîretdanin û piştgiriyê ji bo destpêkek baş li Hollandayê.",
-    "foundation": "Ew çêkirinek azadîxwaz, hevgir û ji bingehê ye ku bi piranî ji gelên Tirkiye û Kurdistanê pêk tê.",
-    "purposeTitle": "Armanca Me",
-    "purpose": "Destpêşxeriya me armanc dike ku alîkariya koçberên nû hatî û kesên ku serlêdana penaberiyê kirine bike ku xwe li jiyana rojane ya li Hollandayê adapte bikin, û zanîn û jêhatîbûna wan wekî qezencek ji civakê re bîne.",
+    "intro": "Diaspora & Azadî, civaka hevgirtinê ye ku ji hêla çalakvanên Kurd ve hatiye çêkirin ku li Hollandayê li tenişta penaber û koçberên ku jiyanek nû ava dikin bisekinin.",
+    "challenge": "Destpêkirina ji nû ve li welatekî nû asan nine. Em jî bi vê rêyê derbas bûn, em van astengîyan jiyîn. Ji ber vê yekê em li vir in: Ev pêvajo bi tenê nehat jiyîn, gihîştina agahdariyê û beşdarî civakê bi hêzek xurt bike ji bo her kesê ku nû li Hollandayê tê.",
+    "movement": "Wekî tevgerek azadker û ji bingehê ve hatî çêkirin ku bi piranî ji gelên Tirkiye û Kurdistanê pêk tê, em hevgirtinê û hêza kolektîf di navendê de digirin.",
+    "visionTitle": "Dîtina Me",
+    "vision": "Em xeyala civakek dikin ku tê de hemû koçber û penaberên li Hollandayê dijîn wekî kesên ku mafên xwe dizanin, dengê xwe bilind dikin, li ser lingên xwe radiwestan û beşdariya civakê dikin bijîn.",
     "missionTitle": "Mîsyona Me",
-    "mission": "Diaspora & Azadî di mîsyona nirxandina xwestek, armanc, astengî û derfetên penaberan û koçberan de ye û bi rêxistinên cîvakî yên cûda re hevkariyê dike û çalakiyan pêk tîne.",
+    "mission": "Bi hev re derbas bûna astengiyên ku mirovên di pêvajoya penaberî û koçberiyê de bi wan re rûbirû dibin, keşfkirina derfetan û pêşkêşkirina piştgirî û rêberiya pratîk ji bo ku her kes bi xwe bigihêje potansiyela xwe. Di vê karê de em bi rêxistinên civata sivîl, înîsyatîfên navxweyî û toran yên hevgirtinê re hêz li hev dikin.",
     "offerTitle": "Em Çi Pêşkêş Dikin?",
     "offers": [
-      "Agahiyên rojane yên li ser penabertî û karên fermî",
-      "Piştgiriya perwerde û pêşveçûna kariyerê",
-      "Rêberiya pêvajoya entegrasyonê",
-      "Civak û parvekirina ezmûnên çalak",
-      "Hevkarî û çalakî bi rêxistinên civaka sivîl re"
-    ]
+      {
+        "icon": "document",
+        "title": "Penabertî û Pêvajoyên Hiqûqî",
+        "description": "Agahiyên rojane, parvekirina ezmûnê û rêberiya rast"
+      },
+      {
+        "icon": "academic",
+        "title": "Piştgiriya Perwerde û Kariyerê",
+        "description": "Hevberiya dîplomayan, perwerdehiya zimanî, lêgerîna kar û rêberî li ser pêşveçûna pîşeyî"
+      },
+      {
+        "icon": "users",
+        "title": "Entegrasyona Civakî",
+        "description": "Têgihiştina sîstema Hollandayê, hînbûna mafan û piştgiriya welatiyiya çalak"
+      },
+      {
+        "icon": "community",
+        "title": "Civak û Hevgirtinê",
+        "description": "Parvekirina ezmûnê, çalakiyên çandî û civakek germ ku we hîs dike ku we bi tenê nine"
+      },
+      {
+        "icon": "link",
+        "title": "Hevkarî û Çalakî",
+        "description": "Projeyên hevbeş bi rêxistinên civata sivîl, şaredarî û platformên din re"
+      }
+    ],
+    "contactTitle": "Bi Me Re Têkilî Daynin",
+    "contactText": "Pirsên we hene? Hewcedariya piştgiriyê heye? An jî dixwazin beşdarî civaka me bibin? Hûn dikarin ji rûpela têkiliyê me bi me re têkilî daynin yan jî me li hesabên medyaya civakî bişopînin."
   },
   "faq": {
     "title": "Pirsên Pir Tên Pirsîn",
