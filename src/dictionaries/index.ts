@@ -81,14 +81,21 @@ export interface Dictionary {
   }
   about: {
     title: string
-    description: string
-    foundation: string
-    purposeTitle: string
-    purpose: string
+    intro: string
+    challenge: string
+    movement: string
+    visionTitle: string
+    vision: string
     missionTitle: string
     mission: string
     offerTitle: string
-    offers: string[]
+    offers: {
+      icon: string
+      title: string
+      description: string
+    }[]
+    contactTitle: string
+    contactText: string
   }
   faq: {
     title: string
